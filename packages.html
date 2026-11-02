@@ -173,32 +173,141 @@ const topicData = {
 
         {
       question: "1. Create a Java program to access the java.util.Date class through import keyword and print the current date of the system.",
-      source_code: ``,
-      output: ``
+      source_code: `package packages;
+import java.util.Date;
+class Q1{
+	public static void main(){
+		Date d = new Date();
+		System.out.println("Current date:"+d);
+	}
+}`,
+      output: `E:\Java\practical file\package_source>javac -d . Q1.java
+
+E:\Java\practical file\package_source>java packages.Q1
+Current date:Mon Nov 02 15:06:13 IST 2026
+`
     },
     {
       question: "2. Create a Java program to access the java.util.Date class through qualified way and print the current date of the system.",
-      source_code: ``,
-      output: ``
+      source_code: `package packages;
+
+class Q2{
+	public static void main(){
+		java.util.Date d = new java.util.Date();
+		System.out.println("Current date:"+d);
+	}
+}`,
+      output: `E:\Java\practical file\package_source>javac -d . Q2.java
+
+E:\Java\practical file\package_source>java packages.Q2
+Current date:Mon Nov 02 15:06:22 IST 2026
+`
     },
     {
       question: "3. Create a Java program to access the java.util.Date class through import keyword and print the current date of the system but inherit the Date class.",
-      source_code: ``,
-      output: ``
+      source_code: `package packages;
+import java.util.Date;
+class Q3 extends Date{
+	public static void main(){
+		Date d = new Date();
+		System.out.println("Current date:"+d);
+	}
+}`,
+      output: `E:\Java\practical file\package_source>javac -d . Q3.java
+
+E:\Java\practical file\package_source>java packages.Q3
+Current date:Mon Nov 02 15:06:29 IST 2026
+`
     },
     {
       question: "4. Create a Java program to access the java.util.Date class through qualified way and print the current date of the system but inherit the Date class.",
-      source_code: ``,
-      output: ``
+      source_code: `package packages;
+class Q4 extends java.util.Date{
+	public static void main(){
+		java.util.Date d = new java.util.Date();
+		System.out.println("Current date:"+d);
+	}
+}`,
+      output: `E:\Java\practical file\package_source>javac -d . Q4.java
+
+E:\Java\practical file\package_source>java packages.Q4
+Current date:Mon Nov 02 15:06:35 IST 2026
+`
     },
     {
       question: "5. Create a Java program to create a package with multiple default classes.",
-      source_code: ``,
-      output: ``
+      source_code: `package packages;
+class A{
+	public void circle(){
+		System.out.println("This is circle");
+	}
+}
+
+class B{
+	public void rectangle(){
+		System.out.println("This is rectangle");
+	}
+}
+
+class C{
+	public void square(){
+		System.out.println("This is square");
+	}
+}
+
+
+class Q5{
+	public static void main(){
+		A a = new A();
+		B b = new B();
+		C c = new C();
+		a.circle();
+		b.rectangle();
+		c.square();
+	}
+
+}`,
+      output: `E:\Java\practical file\package_source>javac -d . Q5.java
+
+E:\Java\practical file\package_source>java packages.Q5
+This is circle
+This is rectangle
+This is square
+`
     },
     {
       question: "6. Create a Java program to create a package with 4 public classes, create the object in another file and call the function created in those classes.",
-      source_code: ``,
+      source_code: `package shapes;
+public class circle{
+	public void circle(double radius){
+		double area = 2*3.14*radius;
+		System.out.println("The area of circle is "+area);
+	}
+}
+
+public class rectangle{
+	public void rectangle(double l,double b){
+		double area = l*b;
+		System.out.println("The area of rectangle is "+area);	}
+}
+
+public class square{
+	public void square_area(double side){
+		double area = side*side;
+		System.out.println("The area of square is "+area);
+	}
+}
+
+import shapes.*;
+
+class Q6{
+	public static void main(String arg[]){
+		circle cr = new circle();
+		cr.circle_area(7);
+		rectangle rec = new rectangle();
+		rec.rectangle_area(4,6);
+	}
+}`,
       output: ``
     },
     {
