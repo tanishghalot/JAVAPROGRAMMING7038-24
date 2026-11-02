@@ -1,0 +1,571 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java - Single Dimension Array</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #F3F4FA;
+    color: #28345C;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 18px;
+    border-radius: 15px;
+    font-size: 26px;
+    font-weight: bold;
+    background: #28345C;
+    color: #FFFFFF;
+    margin-bottom: 25px;
+}
+
+/* Question Box */
+.query-box {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(40, 52, 92, 0.07);
+}
+
+.query-title {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Buttons */
+button {
+    padding: 9px 16px;
+    border: none;
+    border-radius: 20px;
+    background: #28345C;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #6556B8;
+}
+
+/* Answer Section */
+.answer {
+    display: none;
+    margin-top: 18px;
+    border-top: 2px solid #D6D9EA;
+    padding-top: 15px;
+}
+
+.answer-container {
+    display: flex;
+    gap: 15px;
+    align-items: stretch;
+}
+
+/* Code and Output */
+.query-code,
+.output {
+    flex: 1;
+    min-width: 0;
+    background: #F3F4FA;
+    padding: 15px;
+    border: 1px solid #D6D9EA;
+    border-radius: 8px;
+    overflow: auto;
+}
+
+.query-code h3,
+.output h3 {
+    margin-top: 0;
+    font-size: 17px;
+    color: #28345C;
+}
+
+/* Java Code */
+pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #28345C;
+    margin: 0;
+}
+
+/* Reference Link */
+.reference {
+    display: inline-block;
+    margin-top: 15px;
+    color: #6556B8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.reference:hover {
+    text-decoration: underline;
+}
+
+/* Empty Content */
+.empty {
+    color: #777777;
+    font-style: italic;
+    font-family: Arial, sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    body {
+        padding: 12px;
+    }
+
+    .header {
+        font-size: 21px;
+    }
+
+    .answer-container {
+        flex-direction: column;
+    }
+
+    .query-code,
+    .output {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Topic Header -->
+<div class="header" id="SINGLED">
+    SINGLE DIMENSION ARRAY
+</div>
+
+<!-- Questions -->
+<div id="quesList"></div>
+
+<script>
+
+// ======================================
+// JAVA PROGRAMMING QUESTIONS
+// EDIT SOURCE CODE AND OUTPUT HERE
+// ======================================
+
+const topicData = {
+
+    title: "SINGLE DIMENSION ARRAY",
+
+    queries: [
+
+        {
+            question: "Program to copy all elements of one array into another array",
+            source_code: "",
+            output: "",
+            reference_url: ""
+        },
+
+        {
+            question: "Program to find the frequency of each element in the array",
+            source_code: "",
+            output: "",
+            reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/370"
+        },
+
+        {
+            question: "Program to left rotate the elements of an array",
+            source_code: "",
+            output: "",
+            reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/371"
+        },
+
+        {
+            question: "Program to print the duplicate elements of an array",
+            source_code: "",
+            output: "",
+            reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/372"
+        },
+
+        {
+            question: "Program to print the elements of an array",
+            source_code: "",
+            output: "",
+            reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/373"
+        },
+
+        {
+            question: "Program to print the elements of an array in reverse order",
+            source_code: "",
+            output: "",
+            reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/374"
+        },
+
+        {
+            question: "Program to print the elements of an array present on even position",
+            source_code: "",
+            output: "",
+            reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/375"
+        },
+
+        {
+            question: "Program to print the elements of an array present on odd position",
+            source_code: "",
+            output: "",
+            reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/376"
+        },
+
+        {
+            question: "Program to print the largest element in an array",
+            source_code: "",
+            output: "",
+            reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/377"
+        },
+
+        {
+            question: "Program to print the smallest element in an array",
+            source_code: "",
+            output: "",
+            reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/378"
+        },
+
+        {
+            question: "Program to print the number of elements present in an array",
+            source_code: "",
+            output: "",
+            reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/379"
+        },
+
+        {
+            question: "Program to print the sum of all the items of the array",
+            source_code: "",
+            output: "",
+            reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/380"
+        },
+
+        {
+            question: "Program to right rotate the elements of an array",
+            source_code: "",
+            output: "",
+            reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/381"
+        },
+
+        {
+            question: "Program to sort the elements of an array in ascending order",
+            source_code: "",
+            output: "",
+            reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/382"
+        },
+
+        {
+            question: "Program to sort the elements of an array in descending order",
+            source_code: "",
+            output: "",
+            reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/383"
+        },
+
+        {
+            question: "Program to find 3rd Largest Number in an array",
+            source_code: "",
+            output: "",
+            reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/384"
+        },
+
+        {
+            question: "Program to find 2nd Largest Number in an array",
+            source_code: "",
+            output: "",
+            reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/385"
+        },
+
+        {
+            question: "Program to find Largest Number in an array",
+            source_code: "",
+            output: "",
+            reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/386"
+        },
+
+        {
+            question: "Program to find 2nd Smallest Number in an array",
+            source_code: `package SingleD_array;
+
+class second_smallest_digit{
+	public static void main(String args[]){
+		int arr[] = {2,3,4,7,4,5,8};
+		int len = arr.length;
+		int s_index = 0;
+		int s_index_sec = -1;
+		for(int i=1;i<len;i++){
+			if(arr[i]<arr[s_index]){
+				s_index = i;
+			}
+		}
+		for(int j = 0;j<len;j++){
+			if(j == s_index){
+				continue;
+			}
+			else if(s_index_sec == -1 || arr[j] < arr[s_index_sec]){
+				s_index_sec = j;
+			}
+		}
+		System.out.print("The second smallest number in the array is:"+arr[s_index_sec]);
+	}
+}
+			`,
+            output: `E:\Java\practical file\SingleD_array_source>javac -d . Q19.java
+
+E:\Java\practical file\SingleD_array_source>java SingleD_array.second_smallest_digit
+The second smallest number in the array is:3`,
+            reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/387"
+        },
+
+        {
+            question: "Program to find Smallest Number in an array",
+            source_code: `package SingleD_array;
+
+class smallest_digit{
+	public static void main(String args[]){
+		int arr[] = {2,3,4,7,4,5,8};
+		int len = arr.length;
+		int smallest = arr[0];
+		for(int i=1;i<len;i++){
+			if(arr[i]<smallest){
+				smallest = arr[i];
+			}
+		}
+		System.out.print("The smallest number in the array is:"+smallest);
+	}
+}
+			`,
+            output: `E:\Java\practical file\SingleD_array_source>javac -d . Q20.java
+
+E:\Java\practical file\SingleD_array_source>java SingleD_array.smallest_digit
+The smallest number in the array is:2`,
+            reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/388"
+        },
+
+        {
+            question: "Program to remove duplicate elements in an array",
+            source_code: `package SingleD_array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+class remove_duplicate{
+	public static void main(String args[]){
+		int arr[] = {2,4,6,3,1,4,7};
+		List<integer> arrlist = new ArrayList<>(Arrays.asList(arr));
+		int len = arr.length;
+		System.out.print("The original array:\n");
+		for(int i = 0;i<len;i++){
+			System.out.print(arrlist[i]+"\n");
+		}
+		for(int i=0;i<len;i++){
+			int value = arr[i];
+			for(int j=i+1;j<len;j++){
+				if(value == arr[j]){
+					arrlist.remove(arr[j]);
+				}
+			}
+		for(int i = 0;i<len;i++){
+			System.out.print(arrlist[i]+"\n");
+		}
+		
+}
+}
+}
+				`,
+            output: `E:\Java\practical file\SingleD_array_source>javac -d . Q21.java
+
+E:\Java\practical file\SingleD_array_source>java SingleD_array.smallest_digit
+The smallest number in the array is:2`,
+            reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/389"
+        },
+
+        {
+            question: "Program to print odd and even numbers from an array",
+            source_code: `package SingleD_array;
+
+class display_oddeven{
+	public static void main(String args[]){
+		int arr[] = {2,4,6,3,1,4,7};
+		int len = arr.length;
+		System.out.print("The even number in array:\n");
+		for(int i = 0;i<len;i++){
+			if(arr[i]%2== 0){
+				System.out.print(arr[i]+"\n");
+			}
+		}
+		System.out.print("The odd number in array:\n");
+		for(int i = 0;i<len;i++){
+			if(arr[i]%2!= 0){
+				System.out.print(arr[i]+"\n");
+			}
+		}
+}
+}
+				`,
+            output: `E:\Java\practical file\SingleD_array_source>javac -d . Q22.java
+
+E:\Java\practical file\SingleD_array_source>java SingleD_array.display_oddeven
+The even number in array:
+2
+4
+6
+4
+The odd number in array:
+3
+1
+7
+`,
+            reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/390"
+        },
+
+        {
+            question: "How to sort an array in Java",
+            source_code: "",
+            output: "",
+            reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/391"
+        }
+
+    ]
+};
+
+
+// ======================================
+// SET PAGE TITLE
+// ======================================
+
+document.getElementById("SINGLED").textContent = topicData.title;
+
+
+// ======================================
+// DISPLAY QUESTIONS
+// ======================================
+
+const container = document.getElementById("quesList");
+
+topicData.queries.forEach((q, index) => {
+
+    const div = document.createElement("div");
+    div.className = "query-box";
+
+    // Question Title
+    const title = document.createElement("div");
+    title.className = "query-title";
+    title.textContent = `${index + 1}. ${q.question}`;
+
+    // Show Answer Button
+    const button = document.createElement("button");
+    button.textContent = "Show Answer";
+
+    // Answer Section
+    const answer = document.createElement("div");
+    answer.className = "answer";
+
+    // Answer Container
+    const answerContainer = document.createElement("div");
+    answerContainer.className = "answer-container";
+
+    // Source Code
+    const codeBox = document.createElement("div");
+    codeBox.className = "query-code";
+
+    const codeHeading = document.createElement("h3");
+    codeHeading.textContent = "Java Source Code";
+
+    const code = document.createElement("pre");
+
+    code.textContent = q.source_code.trim()
+        ? q.source_code
+        : "Java source code not added yet.";
+
+    if (!q.source_code.trim()) {
+        code.className = "empty";
+    }
+
+    codeBox.appendChild(codeHeading);
+    codeBox.appendChild(code);
+
+    // Output
+    const outputBox = document.createElement("div");
+    outputBox.className = "output";
+
+    const outputHeading = document.createElement("h3");
+    outputHeading.textContent = "Output";
+
+    const output = document.createElement("pre");
+
+    output.textContent = q.output.trim()
+        ? q.output
+        : "Output not added yet.";
+
+    if (!q.output.trim()) {
+        output.className = "empty";
+    }
+
+    outputBox.appendChild(outputHeading);
+    outputBox.appendChild(output);
+
+    // Add both boxes
+    answerContainer.appendChild(codeBox);
+    answerContainer.appendChild(outputBox);
+
+    answer.appendChild(answerContainer);
+
+    // Reference Link
+    if (q.reference_url) {
+
+        const link = document.createElement("a");
+
+        link.href = q.reference_url;
+        link.textContent = "View Reference";
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.className = "reference";
+
+        answer.appendChild(link);
+    }
+
+    // Button Functionality
+    button.addEventListener("click", function () {
+
+        if (answer.style.display === "block") {
+
+            answer.style.display = "none";
+            button.textContent = "Show Answer";
+
+        } else {
+
+            answer.style.display = "block";
+            button.textContent = "Hide Answer";
+
+        }
+
+    });
+
+    // Add everything to page
+    div.appendChild(title);
+    div.appendChild(button);
+    div.appendChild(answer);
+
+    container.appendChild(div);
+
+});
+
+</script>
+
+</body>
+</html>

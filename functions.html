@@ -1,0 +1,739 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java - FUNCTIONS</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #F3F4FA;
+    color: #28345C;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 18px;
+    border-radius: 15px;
+    font-size: 26px;
+    font-weight: bold;
+    background: #28345C;
+    color: #FFFFFF;
+    margin-bottom: 25px;
+}
+
+/* Question Box */
+.query-box {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(40, 52, 92, 0.07);
+}
+
+.query-title {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Buttons */
+button {
+    padding: 9px 16px;
+    border: none;
+    border-radius: 20px;
+    background: #28345C;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #6556B8;
+}
+
+/* Answer Section */
+.answer {
+    display: none;
+    margin-top: 18px;
+    border-top: 2px solid #D6D9EA;
+    padding-top: 15px;
+}
+
+.answer-container {
+    display: flex;
+    gap: 15px;
+    align-items: stretch;
+}
+
+/* Code and Output */
+.query-code,
+.output {
+    flex: 1;
+    min-width: 0;
+    background: #F3F4FA;
+    padding: 15px;
+    border: 1px solid #D6D9EA;
+    border-radius: 8px;
+    overflow: auto;
+}
+
+.query-code h3,
+.output h3 {
+    margin-top: 0;
+    font-size: 17px;
+    color: #28345C;
+}
+
+/* Java Code */
+pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #28345C;
+    margin: 0;
+}
+
+/* Reference Link */
+.reference {
+    display: inline-block;
+    margin-top: 15px;
+    color: #6556B8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.reference:hover {
+    text-decoration: underline;
+}
+
+/* Empty Content */
+.empty {
+    color: #777777;
+    font-style: italic;
+    font-family: Arial, sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    body {
+        padding: 12px;
+    }
+
+    .header {
+        font-size: 21px;
+    }
+
+    .answer-container {
+        flex-direction: column;
+    }
+
+    .query-code,
+    .output {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Topic Header -->
+<div class="header" id="SINGLED">
+    FUNCTIONS
+</div>
+
+<!-- Questions -->
+<div id="quesList"></div>
+
+<script>
+
+// ======================================
+// JAVA PROGRAMMING QUESTIONS
+// EDIT SOURCE CODE AND OUTPUT HERE
+// ======================================
+
+const topicData = {
+
+    title: "FUNCTIONS",
+
+    queries: [
+
+        {
+            question: "1. Write a Java method to find the smallest number among three numbers.",
+            source_code: `package function;
+
+class Q1{
+	public static void main(String args[]){
+		int num1,num2,num3;
+		num1 = 3;
+		num2 = 8;
+		num3 = 5;
+		smallest_number(num1,num2,num3);
+	}
+	
+	public static void smallest_number(int num1,int num2,int num3){			
+		if(num1>num2){
+			if(num2>num3){
+				System.out.print("the smallest number is "+num3);
+			}
+			else{
+				System.out.print("the smallest number is "+num2);
+			}
+		}
+		else{
+			if(num1>num3){
+				System.out.print("the smallest number is "+num3);
+				}
+			else{
+				System.out.print("the smallest number is "+num1);
+			}
+		}
+	}
+}
+	   `,
+            output: `E:\Java\practical file\Functions_source>javac -d . Q1.java
+
+E:\Java\practical file\Functions_source>java function.Q1
+the smallest number is 3`
+        },
+        {
+            question: "2. Write a Java method to compute the average of three numbers.",
+            source_code: `package function;
+
+class Q2{
+	public static void main(String args[]){
+		int num1,num2,num3;
+		num1 = 3;
+		num2 = 8;
+		num3 = 5;
+		average(num1,num2,num3);
+	}
+	
+	public static void average(int num1,int num2,int num3){			
+		int avg;
+		avg = (num1+num2+num3)/3;
+		System.out.print("The average of three numbers is: "+avg);
+	}
+}
+	   ` ,
+            output: `E:\Java\practical file\Functions_source>javac -d . Q2.java
+
+E:\Java\practical file\Functions_source>java function.Q2
+The average of three numbers is: 5`
+        },
+        {
+            question: "3. Write a Java method to display the middle character of a string. Note: If the length of the string is odd, there will be one middle character. If the length is even, there will be two middle characters.",
+            source_code: `package function;
+
+class Q3{
+	public static void main(String args[]){
+		String str;
+		str = "GOODMORNING";
+		display_midchar(str);
+	}
+	
+	public static void display_midchar(String str){			
+		int len = str.length();
+		if(len%2!=0){
+			int midchar_ind = len/2;
+			System.out.print(str.charAt(midchar_ind));
+		}
+		else{
+			int midchar_ind1 = len/2-1;
+			int midchar_ind2 = len/2;	
+			System.out.print(str.charAt(midchar_ind1) + str.charAt(midchar_ind2));
+		}
+		
+	}
+}
+	   `,
+            output: `E:\Java\practical file\Functions_source>javac -d . Q3.java
+
+E:\Java\practical file\Functions_source>java function.Q3
+O`
+        },
+        {
+            question: "4. Write a Java method to count all the words in a string.",
+            source_code: `package function;
+
+class Q4{
+	public static void main(String args[]){
+		String str;
+		str = "hey GOOD MORNING";
+		count_words(str);
+	}
+	
+	public static void count_words(String str){			
+		int len = str.length();
+		int count =1;
+		for(int i=0;i<len;i++){
+			if(str.charAt(i) == ' ' && i>0){
+				count++;
+			}  
+		}
+		System.out.print("The number of words in the string is : "+count);
+		
+	}
+}
+	   `,
+            output: `E:\Java\practical file\Functions_source>javac -d . Q4.java
+
+E:\Java\practical file\Functions_source>java function.Q4
+The number of words in the string is : 3`
+        },
+        {
+            question: "5. Write a Java method to compute the future investment value at a given interest rate for a specified number of years.",
+            source_code: `package function;
+
+class Q5{
+	public static void main(String args[]){
+		int int_rate = 12;
+		int investment_amount = 1000;
+		int years = 12;
+		investment_value(investment_amount,int_rate,years);	
+	}
+	
+	public static void investment_value(int amount,int rate,int y){			
+			double fut_value;
+			int months = y*12;
+			double monthly_rate = rate/(100.0*12);
+			fut_value = amount*Math.pow(1+monthly_rate,months);
+			System.out.print("The future value of invested amount is: "+fut_value);
+	}
+}
+	   `,
+            output: `E:\Java\practical file\Functions_source>javac -d . Q5.java
+
+E:\Java\practical file\Functions_source>java function.Q5
+The future value of invested amount is: 4190.6155936008345`
+        },
+        {
+            question: "6. Write a Java method to print characters between two characters (i.e. A to P).",
+            source_code: `package function;
+
+class Q6{
+	public static void main(String agr[]){
+		display_AP();
+	}
+	
+	public static void display_AP(){
+		int A_ascii = 65;
+		int P_ascii = 80;
+		for(int i = A_ascii;i<P_ascii;i++){
+			System.out.print((char)i+"\n");
+		}
+	}
+}`,
+            output: `E:\Java\practical file\Functions_source>javac -d . Q6.java
+
+E:\Java\practical file\Functions_source>java function.Q6
+A
+B
+C
+D
+E
+F
+G
+H
+I
+J
+K
+L
+M
+N
+O`
+        },
+        {
+            question: "7. Write a Java method to check whether a string is a valid password.",
+            source_code: `package function;
+
+class Q7{
+	public static void main(String agr[]){
+		String str;
+		str = "Tanishkumar";
+		validate_passwd(str);
+	}
+	
+	public static void validate_passwd(String str){
+		int len = str.length();
+		int symbolcount = 0;
+		int uppcount = 0;
+		int lowcount = 0;	
+		if(len<8){
+			System.out.print("The length of password is minimum 8 characters");
+			return;
+		}
+		for(int i = 0;i<len;i++){
+			if((int)str.charAt(i)>=33 && (int)str.charAt(i) <=47){
+				symbolcount++;
+			}
+			else if((int)str.charAt(i)>=65 && (int)str.charAt(i) <=90){
+				uppcount++;
+			}
+			else if((int)str.charAt(i)>=97 && (int)str.charAt(i) <=122){
+				lowcount++;
+			}
+		}
+		if(symbolcount<=0){
+			System.out.print("The password should contain atleast one symbol");
+			return;
+		}
+		else if(uppcount<=0){
+			System.out.print("The password should contain atleast one uppercase character");
+			return;
+		}
+		else if(lowcount<=0){
+			System.out.print("The password should contain atleast one lowercase character");
+		}
+		else{
+			System.out.print("The password is strong");
+		}
+	}
+}
+`,
+            output: `E:\Java\practical file\Functions_source>javac -d . Q7.java
+
+E:\Java\practical file\Functions_source>java function.Q7
+The password should contain atleast one symbol`
+        },
+        {
+            question: "8. Write a Java method to display the current date and time.",
+            source_code: `package function;
+import java.time.LocalDateTime;
+
+class Q8{
+	public static void main(String agr[]){
+		LocalDateTime Today = LocalDateTime.now();	
+		System.out.print("The current date and time is : "+Today);		
+	}
+	
+}
+`,
+            output: `E:\Java\practical file\Functions_source>javac -d . Q8.java
+
+E:\Java\practical file\Functions_source>java function.Q8
+The current date and time is : 2026-10-30T19:51:22.140159300`
+        },
+        {
+            question: "9. Write a Java method to find all twin prime numbers less than 100.",
+            source_code: ``,
+            output: ""
+        },
+        {
+            question: "10. Write a Java method to count the number of digits in an integer with the value 2. The integer may be assumed to be non-negative.",
+            source_code: `
+package function;
+import java.io.*;
+
+class Q10 {
+    public static void main(String agr[]) {
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+            System.out.print("Enter a number: ");
+            String str = br.readLine();
+            int num = Integer.parseInt(str);
+            count_digit(num);
+        }
+        catch(IOException e) {
+            System.out.println("An error occurred");
+        }
+    }
+
+    public static void count_digit(int num) {
+        int i = num;
+        int rem = 0;
+        int count = 0;
+        while(i > 0) {
+            rem = i % 10;
+            if(rem == 2) {
+                count++;
+            }
+            i = i / 10;
+        }
+
+        System.out.println("Digit 2 appears " + count + " times.");
+    }
+}
+`,
+            output: `E:\Java\practical file\Functions_source>javac -d . Q10.java
+
+E:\Java\practical file\Functions_source>java function.Q10
+Enter a number: 45
+Digit 2 appears 0 times.
+`
+        },
+        {
+            question: "11. Write a Java method that accepts three integers and checks whether they are consecutive or not. Returns true or false.",
+            source_code: `package function;
+import java.io.*;
+class Q11{
+	public static void main(String agr[]){
+		try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in)))		{
+			String str0 = br.readLine();
+			int num1 = Integer.parseInt(str0);
+			String str1 = br.readLine();
+			int num2 = Integer.parseInt(str1);
+			String str2 = br.readLine();
+			int num3 = Integer.parseInt(str2);
+			Boolean b = consecutive_num(num1,num2,num3);
+			if(b){
+				System.out.println("The number is consecutive");
+			}
+			else{
+				System.out.println("The number is not consecutive");
+			}
+		}
+		catch(IOException e){
+			System.out.println("An error occurred");
+		}
+	}
+
+		public static boolean consecutive_num(int num1,int num2,int num3){
+			int sum = num1+num2+num3;
+			if((num1+1) == num2 && (num3-1) == num2 && sum == (num2*3)){			
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+}`,
+            output: `E:\Java\practical file\Functions_source>javac -d . Q11.java
+
+E:\Java\practical file\Functions_source>java function.Q11
+3
+6
+8
+The number is not consecutive
+`
+        },
+        {
+            question: "12. Write a Java method that accepts three integers and returns true if one is the middle point between the other two integers, otherwise false.",
+            source_code: `package function;
+import java.io.*;
+class Q12{
+	public static void main(String agr[]){
+		try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in)))		{
+			String str0 = br.readLine();
+			int num1 = Integer.parseInt(str0);
+			String str1 = br.readLine();
+			int num2 = Integer.parseInt(str1);
+			String str2 = br.readLine();
+			int num3 = Integer.parseInt(str2);
+			Boolean b = midpoint_num(num1,num2,num3);
+			if(b){
+				System.out.println("The one is middle point between other two");
+			}
+			else{
+				System.out.println("The one is not middle point between other two");
+			}
+		}
+		catch(IOException e){
+			System.out.println("An error occurred");
+		}
+	}
+
+		public static boolean midpoint_num(int num1,int num2,int num3){
+			int mid1 = Math.abs(num1-num2)/2;
+			int  mid2 = Math.abs(num1-num3)/2;
+			int mid3 = Math.abs(num2-num3)/2;
+			
+			if(num1 == mid3+num2){
+				return true;
+			}
+			else if(num2 == mid2+num1){
+				return true;
+			}
+			else if(num3 == mid1+num1){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+}`,
+            output: `E:\Java\practical file\Functions_source>java function.Q12
+3
+6
+9
+The one is middle point between other two`
+        },
+        {
+            question: "13. Write a Java method that checks whether all the characters in a given string are vowels (a, e, i, o, u) or not. Return true if each character in the string is a vowel, otherwise return false.",
+            source_code: `package function;
+import java.io.*;
+class Q13{
+	public static void main(String agr[]){
+		try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in)))		{
+			String str = br.readLine();
+			Boolean b = vowel(str);
+			if(b){
+				System.out.println("String consist of all vowel only");
+			}
+			else{
+				System.out.println("String does not consist of vowels");
+			}
+		}
+		catch(IOException e){
+			System.out.println("An error occurred");
+		}
+		}
+
+		public static boolean vowel(String str){
+			int len = str.length();
+			int vowels[] = {'a','e','i','o','u'};
+			for(int i=0;i<len;i++){
+				boolean v = false;
+				char ch = Character.toLowerCase(str.charAt(i));
+				for(int j = 0;j<5;j++){
+					if( ch == vowels[j]){
+						v = true;
+						break;
+					}
+				}
+				if(!v){
+					return false;
+				}
+			}
+			return true;
+			
+		}
+}`,
+            output: `E:\Java\practical file\Functions_source>javac -d . Q13.java
+
+E:\Java\practical file\Functions_source>java function.Q13
+aeiou
+String consist of all vowel only
+`
+        }
+
+    ]
+};
+
+
+// ======================================
+// SET PAGE TITLE
+// ======================================
+
+document.getElementById("SINGLED").textContent = topicData.title;
+
+
+// ======================================
+// DISPLAY QUESTIONS
+// ======================================
+
+const container = document.getElementById("quesList");
+
+topicData.queries.forEach((q, index) => {
+
+    const div = document.createElement("div");
+    div.className = "query-box";
+
+    // Question Title
+    const title = document.createElement("div");
+    title.className = "query-title";
+    title.textContent = `${index + 1}. ${q.question}`;
+
+    // Show Answer Button
+    const button = document.createElement("button");
+    button.textContent = "Show Answer";
+
+    // Answer Section
+    const answer = document.createElement("div");
+    answer.className = "answer";
+
+    // Answer Container
+    const answerContainer = document.createElement("div");
+    answerContainer.className = "answer-container";
+
+    // Source Code
+    const codeBox = document.createElement("div");
+    codeBox.className = "query-code";
+
+    const codeHeading = document.createElement("h3");
+    codeHeading.textContent = "Java Source Code";
+
+    const code = document.createElement("pre");
+
+    code.textContent = q.source_code.trim()
+        ? q.source_code
+        : "Java source code not added yet.";
+
+    if (!q.source_code.trim()) {
+        code.className = "empty";
+    }
+
+    codeBox.appendChild(codeHeading);
+    codeBox.appendChild(code);
+
+    // Output
+    const outputBox = document.createElement("div");
+    outputBox.className = "output";
+
+    const outputHeading = document.createElement("h3");
+    outputHeading.textContent = "Output";
+
+    const output = document.createElement("pre");
+
+    output.textContent = q.output.trim()
+        ? q.output
+        : "Output not added yet.";
+
+    if (!q.output.trim()) {
+        output.className = "empty";
+    }
+
+    outputBox.appendChild(outputHeading);
+    outputBox.appendChild(output);
+
+    // Add both boxes
+    answerContainer.appendChild(codeBox);
+    answerContainer.appendChild(outputBox);
+
+    answer.appendChild(answerContainer);
+
+    // Reference Link
+    
+
+    // Button Functionality
+    button.addEventListener("click", function () {
+
+        if (answer.style.display === "block") {
+
+            answer.style.display = "none";
+            button.textContent = "Show Answer";
+
+        } else {
+
+            answer.style.display = "block";
+            button.textContent = "Hide Answer";
+
+        }
+
+    });
+
+    // Add everything to page
+    div.appendChild(title);
+    div.appendChild(button);
+    div.appendChild(answer);
+
+    container.appendChild(div);
+
+});
+
+</script>
+
+</body>
+</html>

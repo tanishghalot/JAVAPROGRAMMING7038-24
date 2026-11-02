@@ -1,0 +1,837 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java - Inheritance</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #F3F4FA;
+    color: #28345C;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 18px;
+    border-radius: 15px;
+    font-size: 26px;
+    font-weight: bold;
+    background: #28345C;
+    color: #FFFFFF;
+    margin-bottom: 25px;
+}
+
+/* Question Box */
+.query-box {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(40, 52, 92, 0.07);
+}
+
+.query-title {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Buttons */
+button {
+    padding: 9px 16px;
+    border: none;
+    border-radius: 20px;
+    background: #28345C;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #6556B8;
+}
+
+/* Answer Section */
+.answer {
+    display: none;
+    margin-top: 18px;
+    border-top: 2px solid #D6D9EA;
+    padding-top: 15px;
+}
+
+.answer-container {
+    display: flex;
+    gap: 15px;
+    align-items: stretch;
+}
+
+/* Code and Output */
+.query-code,
+.output {
+    flex: 1;
+    min-width: 0;
+    background: #F3F4FA;
+    padding: 15px;
+    border: 1px solid #D6D9EA;
+    border-radius: 8px;
+    overflow: auto;
+}
+
+.query-code h3,
+.output h3 {
+    margin-top: 0;
+    font-size: 17px;
+    color: #28345C;
+}
+
+/* Java Code */
+pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #28345C;
+    margin: 0;
+}
+
+/* Empty Content */
+.empty {
+    color: #777777;
+    font-style: italic;
+    font-family: Arial, sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    body {
+        padding: 12px;
+    }
+
+    .header {
+        font-size: 21px;
+    }
+
+    .answer-container {
+        flex-direction: column;
+    }
+
+    .query-code,
+    .output {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Topic Header -->
+<div class="header" id="SINGLED">
+    INHERITANCE
+</div>
+
+<!-- Questions -->
+<div id="quesList"></div>
+
+<script>
+
+// ======================================
+// JAVA PROGRAMMING QUESTIONS
+// EDIT SOURCE CODE AND OUTPUT HERE
+// ======================================
+
+const topicData = {
+
+    title: "INHERITANCE",
+
+    queries: [
+	{
+      question: "1. Write a Java program to create a class called Animal with a method called makeSound(). Create a subclass called Cat that overrides the makeSound() method to bark.",
+      source_code: `package inheritance;
+
+class Animal{
+	public void makesound(){
+		System.out.println("The animal make a sound");
+}
+}
+
+class Cat extends Animal{
+	@Override
+	public  void makesound(){
+		System.out.println("Barks");
+	}
+
+}
+
+class main_Q1{
+	public static void main(String arg[]){
+		Animal a = new Animal();
+		a.makesound();
+		
+		System.out.println("Cat sound");
+		Cat c = new Cat();
+		c.makesound();
+	}
+}
+`,
+      output: `E:\Java\practical file\packages_source>java inheritance.main_Q1
+The animal make a sound
+Cat sound
+Barks
+`
+    },
+    {
+      question: "2. Write a Java program to create a class called Vehicle with a method called drive(). Create a subclass called Car that overrides the drive() method to print \"Repairing a car\".",
+      source_code: `package inheritance;
+
+class Vehicle{
+	public void drive(){
+		System.out.println("The vehicle is drivable");
+}
+}
+
+class Car extends Vehicle{
+	@Override
+	public  void drive(){
+		System.out.println("Repairing a car");
+	}
+
+}
+
+class main_Q2{
+	public static void main(String arg[]){
+		Vehicle a = new Vehicle();
+		a.drive();
+		
+		System.out.println("Car status");
+		Car c = new Car();
+		c.drive();
+	}
+}
+`,
+      output: `E:\Java\practical file\packages_source>javac -d . Q2.java
+
+E:\Java\practical file\packages_source>java inheritance.main_Q2
+The vehicle is drivable
+Car status
+Repairing a car
+`
+    },
+    {
+      question: "3. Write a Java program to create a class called Shape with a method called getArea(). Create a subclass called Rectangle that overrides the getArea() method to calculate the area of a rectangle.",
+      source_code: `package inheritance;
+import java.io.*;
+class Shape{
+	public void getArea(){
+		System.out.println("The Dimension are not yet decided");
+}
+}
+
+class Rectangle extends Shape{
+	@Override
+	public  void getArea(){
+		try{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter the length of the rectangle");
+		String str1 = br.readLine();
+		int length = Integer.parseInt(str1);
+		System.out.println("Enter the breadth of the rectangle");
+		String str2 = br.readLine();
+		int breadth = Integer.parseInt(str2);
+		double Area = length*breadth;
+		System.out.println("The area of the rectanlge is "+Area);	
+		}
+		catch(IOException e){
+			System.out.println("An error occured");
+		}
+	}
+
+}
+
+class main_Q3{
+	public static void main(String arg[]){
+		Shape a = new Shape();
+		a.getArea();
+		
+		System.out.println("Car status");
+		Rectangle c = new Rectangle();
+		c.getArea();
+	}
+}
+`,
+      output: `E:\Java\practical file\packages_source>javac -d . Q3.java
+
+E:\Java\practical file\packages_source>java inheritance.main_Q3
+The Dimension are not yet decided
+Car status
+Enter the length of the rectangle
+4
+Enter the breadth of the rectangle
+8
+The area of the rectanlge is 32.0
+`
+    },
+    {
+      question: "4. Write a Java program to create a class called Employee with methods called work() and getSalary(). Create a subclass called HRManager that overrides the work() method and adds a new method called addEmployee().",
+      source_code: `package inheritance;
+import java.io.*;
+class Employee{
+	private double sal;
+	public Employee(double salary){
+		this.sal = salary;
+	}
+	public void work(){
+		System.out.println("employee working");
+	}
+	public void getSalary(){
+		System.out.println("The employee salary is "+sal);
+	}
+}
+
+class HRManager extends Employee{
+	public HRManager(double salary){
+		super(salary);
+	}
+	@Override
+	public  void work(){
+		System.out.println("The HR is on work");		
+	}
+	public void addemp(String name){
+		System.out.println("HR add new employee"+name);
+	}
+
+}
+
+class main_Q4{
+	public static void main(String arg[]){
+		Employee e1 = new Employee(25000);
+		e1.work();
+		e1.getSalary();
+		HRManager hr1 = new HRManager(25000);
+		hr1.work();
+		hr1.addemp("Tanish");
+	}
+}
+`,
+      output: `E:\Java\practical file\packages_source>javac -d . Q4.java
+
+E:\Java\practical file\packages_source>java inheritance.main_Q4
+employee working
+The employee salary is 25000.0
+The HR is on work
+HR add new employeeTanish
+`
+    },
+    {
+      question: "5. Write a Java program to create a class known as BankAccount with methods called deposit() and withdraw(). Create a subclass called SavingsAccount that overrides the withdraw() method to prevent withdrawals if the account balance falls below one hundred.",
+      source_code: `package inheritance;
+import java.io.*;
+class BankAccount{
+	private String name;
+	protected double balance;
+	public BankAccount(String name,double balance){
+		this.name = name;
+		this.balance = balance;
+	}
+	public void withdraw(double amount){
+		System.out.println("Not yet withdrawl");
+	}
+	public void deposit(double amount){
+		System.out.println("Not yet deposited");
+	}
+}
+
+class SavingAccount extends BankAccount{
+	public SavingAccount(String name , double balance){
+		super(name,balance);
+	}
+	@Override
+	public  void withdraw(double amount){
+		if(amount>balance || (balance-amount)<=100){
+			System.out.println("The withdrawl cannont be proceed");	
+		}	
+		else{
+			System.out.println("Amount is withdrawed"+amount);
+		}	
+	}
+	@Override
+	public  void deposit(double amount){
+			if (amount > 0) {
+            balance = balance + amount;
+            System.out.println("Amount deposited: " + amount);
+        }
+	}
+	
+
+}
+
+class main_Q5{
+	public static void main(String arg[]){
+		BankAccount ba = new BankAccount("Tanish",25000);
+		ba.withdraw(200);
+		ba.deposit(500);
+		SavingAccount sa = new SavingAccount("Tanish",25000);
+		sa.withdraw(2000);
+		sa.deposit(2000);
+		
+	}
+}
+`,
+      output: `E:\Java\practical file\packages_source>javac -d . Q5.java
+
+E:\Java\practical file\packages_source>java inheritance.main_Q5
+Not yet withdrawl
+Not yet deposited
+Amount is withdrawed2000.0
+Amount deposited: 2000.0
+`
+    },
+    {
+      question: "6. Write a Java program to create a class called Animal with a method named move(). Create a subclass called Cheetah that overrides the move() method to run.",
+      source_code: `package inheritance;
+import java.io.*;
+class Animal{
+	public void move(){
+		System.out.println("Not yet moved");
+	}
+}
+
+class Cheetah extends Animal{
+	@Override
+	public void move(){
+		System.out.println("The cheetah is running");
+	}
+
+}
+
+class main_Q6{
+	public static void main(String arg[]){
+		Animal A = new Animal();
+		A.move();
+		Cheetah C = new Cheetah();
+		C.move();
+		
+	}
+}
+`,
+      output: `E:\Java\practical file\packages_source>javac -d . Q6.java
+
+E:\Java\practical file\packages_source>java inheritance.main_Q6
+Not yet moved
+The cheetah is running
+`
+    },
+    {
+      question: "7. Write a Java program to create a class known as Person with methods called getFirstName() and getLastName(). Create a subclass called Employee that adds a new method named getEmployeeId() and overrides the getLastName() method to include the employee's job title.",
+      source_code: `
+package inheritance;
+
+import java.io.*;
+
+class Person {
+    private String Fname;
+    private String Lname;
+
+    public Person(String Fname, String Lname){
+        this.Fname = Fname;
+        this.Lname = Lname;
+    }
+    public String getFirstName() {
+        return Fname;
+    }
+    public String getLastName() {
+        return Lname;
+    }
+    public String getLastName(String des) {
+        return Lname + " " + des;
+    }
+}
+
+class Employee extends Person {
+    private int empID;
+    public Employee(String Fname, String Lname) {
+        super(Fname, Lname);
+    }
+    public Employee(String Fname, String Lname, int id) {
+        super(Fname, Lname);
+        this.empID = id;
+    }
+    public int getEmployeeId() {
+        return empID;
+    }
+    @Override
+    public String getLastName(String des) {
+        return super.getLastName(des);
+    }
+}
+
+class main_Q7 {
+    public static void main(String arg[]) {
+        Person p = new Person("Tanish", "Kumar");
+        System.out.println("First Name: " + p.getFirstName());
+        System.out.println("Last Name: " + p.getLastName());
+        Employee e = new Employee("Tanish", "Kumar", 101);
+        System.out.println("Employee ID: " + e.getEmployeeId());
+        System.out.println("Employee Name: "
+                + e.getFirstName() + " "
+                + e.getLastName("Manager"));
+    }
+}
+`,
+      output: `E:\Java\practical file\packages_source>javac -d . Q7.java
+
+E:\Java\practical file\packages_source>java inheritance.main_Q7
+First Name: Tanish
+Last Name: Kumar
+Employee ID: 101
+Employee Name: Tanish Kumar Manager
+`
+    },
+    {
+      question: "8. Write a Java program to create a class called Shape with methods called getPerimeter() and getArea(). Create a subclass called Circle that overrides the getPerimeter() and getArea() methods to calculate the area and perimeter of a circle.",
+      source_code: `package inheritance;
+
+class Shape{
+	public double getPerimeter(){
+		return 0;
+	}
+	public double getArea(){
+		return 0;
+	}
+}
+
+class Circle extends Shape{
+	private double radius;
+	public Circle(double radius){
+		this.radius = radius;
+	}
+	@Override
+	public double getPerimeter(){
+		return 2*3.14*radius;
+	}
+
+	@Override
+	public double getArea(){
+		return 2*3.14*radius*radius;
+	}		
+
+}
+
+class main_Q8{
+	public static void main(String arg[]){
+		Circle c1 = new Circle(5.8);
+		System.out.println("The perimeter of circle is :"+c1.getPerimeter());
+		System.out.println("The perimeter of circle is :"+c1.getArea());
+	}
+
+}`,
+      output: `E:\Java\practical file\packages_source>javac -d . Q8.java
+
+E:\Java\practical file\packages_source>java inheritance.main_Q8
+The perimeter of circle is :36.424
+The perimeter of circle is :211.2592
+`
+    },
+    {
+      question: "9. Write a Java program to create a vehicle class hierarchy. The base class should be Vehicle, with subclasses Truck, Car and Motorcycle. Each subclass should have properties such as make, model, year, and fuel type. Implement methods for calculating fuel efficiency, distance traveled, and maximum speed.",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "10. Write a Java program that creates a class hierarchy for employees of a company. The base class should be Employee, with subclasses Manager, Developer, and Programmer. Each subclass should have properties such as name, address, salary, and job title. Implement methods for calculating bonuses, generating performance reports, and managing projects.",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "11. Create a program, showing an example of super keyword.",
+      source_code: `package inheritance;
+
+class A{
+	private int num1;
+	private int num2;
+	A(int a,int b){
+		this.num1 = a;
+		this.num2 = b;
+	}
+		
+	public void getnum(){
+		System.out.println(num1);
+		System.out.println(num2);
+	}
+}
+
+class B extends A{
+	public B(int a ,int b){
+		super(a,b);
+	}
+}
+
+class main_Q11{
+	public static void main(String arg[]){
+		A a = new A(5,6);
+		a.getnum();
+		B b = new B(7,8);
+		b.getnum();
+	}
+}`,
+      output: `E:\Java\practical file\packages_source>javac -d . Q11.java
+
+E:\Java\practical file\packages_source>java inheritance.main_Q11
+5
+6
+7
+8
+`
+    },
+    {
+      question: "12. Create a program, showing an example of super function.",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "13. Create a program, showing an example of method overriding.",
+      source_code: `package inheritance;
+
+class A{
+	private int num1;
+	private int num2;
+	A(int a,int b){
+		this.num1 = a;
+		this.num2 = b;
+	}
+		
+	public void getnum(){
+		System.out.println(num1);
+		System.out.println(num2);
+	}
+	public void sum(){
+		System.out.println("sum :" + num1+num2);
+	}
+}
+
+class B extends A{
+	public B(int a ,int b){
+		super(a,b);
+	}
+
+	public void sum(int num){
+		int sum = 0;
+		System.out.println("The sum is zero now" + sum);
+	}
+}
+
+class main_Q13{
+	public static void main(String arg[]){
+		A a = new A(5,6);
+		a.getnum();
+		a.sum();
+		B b = new B(7,8);
+		b.getnum();
+		b.sum();
+	}
+}`,
+      output: `E:\Java\practical file\packages_source>javac -d . Q13.java
+
+E:\Java\practical file\packages_source>java inheritance.main_Q13
+5
+6
+sum :56
+7
+8
+sum :78
+`
+    },
+    {
+      question: "14. Create a program, showing an example of dynamic method dispatch.",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "15. Write a Java program to create an abstract class Animal with an abstract method called sound(). Create subclasses Lion and Tiger that extend the Animal class and implement the sound() method to make a specific sound for each animal.",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "16. Write a Java program to create an abstract class Shape with abstract methods calculateArea() and calculatePerimeter(). Create subclasses Circle and Triangle that extend the Shape class and implement the respective methods to calculate the area and perimeter of each shape.",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "17. Write a Java program to create an abstract class BankAccount with abstract methods deposit() and withdraw(). Create subclasses SavingsAccount and CurrentAccount that extend the BankAccount class and implement the respective methods to handle deposits and withdrawals for each account type.",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "18. Write a Java program to create an abstract class Animal with abstract methods eat() and sleep(). Create subclasses Lion, Tiger, and Deer that extend the Animal class and implement the eat() and sleep() methods differently based on their specific behavior.",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "19. Write a Java program to create an abstract class Employee with abstract methods calculateSalary() and displayInfo(). Create subclasses Manager and Programmer that extend the Employee class and implement the respective methods to calculate salary and display information for each role.",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "20. Write a Java program to create an abstract class Shape3D with abstract methods calculateVolume() and calculateSurfaceArea(). Create subclasses Sphere and Cube that extend the Shape3D class and implement the respective methods to calculate the volume and surface area of each shape.",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "21. Write a Java program to create an abstract class Vehicle with abstract methods startEngine() and stopEngine(). Create subclasses Car and Motorcycle that extend the Vehicle class and implement the respective methods to start and stop the engines for each vehicle type.",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "22. Write a Java program to create an abstract class Person with abstract methods eat() and exercise(). Create subclasses Athlete and LazyPerson that extend the Person class and implement the respective methods to describe how each person eats and exercises.",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "23. Write a Java program to create an abstract class Instrument with abstract methods play() and tune(). Create subclasses for Glockenspiel and Violin that extend the Instrument class and implement the respective methods to play and tune each instrument.",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "24. Write a Java program to create an abstract class Shape2D with abstract methods draw() and resize(). Create subclasses Rectangle and Circle that extend the Shape2D class and implement the respective methods to draw and resize each shape.",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "25. Write a Java program to create an abstract class Bird with abstract methods fly() and makeSound(). Create subclasses Eagle and Hawk that extend the Bird class and implement the respective methods to describe how each bird flies and makes a sound.",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "26. Write a Java program to create an abstract class GeometricShape with abstract methods area() and perimeter(). Create subclasses Triangle and Square that extend the GeometricShape class and implement the respective methods to calculate the area and perimeter of each shape.",
+      source_code: ``,
+      output: ``
+    }
+
+    ]
+};
+
+
+// ======================================
+// SET PAGE TITLE
+// ======================================
+
+document.getElementById("SINGLED").textContent = topicData.title;
+
+
+// ======================================
+// DISPLAY QUESTIONS
+// ======================================
+
+const container = document.getElementById("quesList");
+
+topicData.queries.forEach((q, index) => {
+
+    const div = document.createElement("div");
+    div.className = "query-box";
+
+    // Question Title
+    const title = document.createElement("div");
+    title.className = "query-title";
+    title.textContent = `${q.question}`;
+
+    // Show Answer Button
+    const button = document.createElement("button");
+    button.textContent = "Show Answer";
+
+    // Answer Section
+    const answer = document.createElement("div");
+    answer.className = "answer";
+
+    // Answer Container
+    const answerContainer = document.createElement("div");
+    answerContainer.className = "answer-container";
+
+    // Source Code
+    const codeBox = document.createElement("div");
+    codeBox.className = "query-code";
+
+    const codeHeading = document.createElement("h3");
+    codeHeading.textContent = "Java Source Code";
+
+    const code = document.createElement("pre");
+
+    code.textContent = q.source_code.trim()
+        ? q.source_code
+        : "Java source code not added yet.";
+
+    if (!q.source_code.trim()) {
+        code.className = "empty";
+    }
+
+    codeBox.appendChild(codeHeading);
+    codeBox.appendChild(code);
+
+    // Output
+    const outputBox = document.createElement("div");
+    outputBox.className = "output";
+
+    const outputHeading = document.createElement("h3");
+    outputHeading.textContent = "Output";
+
+    const output = document.createElement("pre");
+
+    output.textContent = q.output.trim()
+        ? q.output
+        : "Output not added yet.";
+
+    if (!q.output.trim()) {
+        output.className = "empty";
+    }
+
+    outputBox.appendChild(outputHeading);
+    outputBox.appendChild(output);
+
+    // Add both boxes
+    answerContainer.appendChild(codeBox);
+    answerContainer.appendChild(outputBox);
+
+    answer.appendChild(answerContainer);
+
+
+    // Button Functionality
+    button.addEventListener("click", function () {
+
+        if (answer.style.display === "block") {
+
+            answer.style.display = "none";
+            button.textContent = "Show Answer";
+
+        } else {
+
+            answer.style.display = "block";
+            button.textContent = "Hide Answer";
+
+        }
+
+    });
+
+    // Add everything to page
+    div.appendChild(title);
+    div.appendChild(button);
+    div.appendChild(answer);
+
+    container.appendChild(div);
+
+});
+
+</script>
+
+</body>
+</html>

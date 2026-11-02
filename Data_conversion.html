@@ -1,0 +1,792 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java - Data Conversin</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #F3F4FA;
+    color: #28345C;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 18px;
+    border-radius: 15px;
+    font-size: 26px;
+    font-weight: bold;
+    background: #28345C;
+    color: #FFFFFF;
+    margin-bottom: 25px;
+}
+
+/* Question Box */
+.query-box {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(40, 52, 92, 0.07);
+}
+
+.query-title {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Buttons */
+button {
+    padding: 9px 16px;
+    border: none;
+    border-radius: 20px;
+    background: #28345C;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #6556B8;
+}
+
+/* Answer Section */
+.answer {
+    display: none;
+    margin-top: 18px;
+    border-top: 2px solid #D6D9EA;
+    padding-top: 15px;
+}
+
+.answer-container {
+    display: flex;
+    gap: 15px;
+    align-items: stretch;
+}
+
+/* Code and Output */
+.query-code,
+.output {
+    flex: 1;
+    min-width: 0;
+    background: #F3F4FA;
+    padding: 15px;
+    border: 1px solid #D6D9EA;
+    border-radius: 8px;
+    overflow: auto;
+}
+
+.query-code h3,
+.output h3 {
+    margin-top: 0;
+    font-size: 17px;
+    color: #28345C;
+}
+
+/* Java Code */
+pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #28345C;
+    margin: 0;
+}
+
+/* Empty Content */
+.empty {
+    color: #777777;
+    font-style: italic;
+    font-family: Arial, sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    body {
+        padding: 12px;
+    }
+
+    .header {
+        font-size: 21px;
+    }
+
+    .answer-container {
+        flex-direction: column;
+    }
+
+    .query-code,
+    .output {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Topic Header -->
+<div class="header" id="SINGLED">
+   Data Conversion
+</div>
+
+<!-- Questions -->
+<div id="quesList"></div>
+
+<script>
+
+// ======================================
+// JAVA PROGRAMMING QUESTIONS
+// EDIT SOURCE CODE AND OUTPUT HERE
+// ======================================
+
+const topicData = {
+
+    title: "Data Conversion",
+
+    queries: [
+	{
+      question: "1. How to convert String to int",
+      source_code: `package DataConversion;
+	
+class Q1{
+	public static void main(String arg[]){
+		String str;
+		str = "45";
+		int num;
+		num = Integer.parseInt(str);
+		System.out.println(num);
+	}
+
+}
+		  `,
+      output: `E:\Java\practical file\DataConversion_source>javac -d . Q1.java
+
+E:\Java\practical file\DataConversion_source>java DataConversion.Q1
+45
+`
+    },
+    {
+      question: "2. How to convert int to String",
+      source_code: `package DataConversion;
+import java.lang.String;
+	
+class Q2{
+	public static void main(String arg[]){
+		String str;
+		int num = 60;
+		str = Integer.toString(num);
+		System.out.println(str);
+	}
+
+}
+		  `,
+      output: `E:\Java\practical file\DataConversion_source>javac -d . Q2.java
+
+E:\Java\practical file\DataConversion_source>java DataConversion.Q2
+60
+`
+    },
+    {
+      question: "3. How to convert String to long",
+      source_code: `package DataConversion;
+import java.lang.getClass;
+	
+class Q3{
+	public static void main(String arg[]){
+		String str;
+		str = "987846352";
+		Long num = Long.parseLong(str);
+		System.out.println(num);
+	}
+
+}
+		  `,
+      output: ``
+    },
+    {
+      question: "4. How to convert long to String",
+      source_code: `package DataConversion;
+	
+class Q4{
+	public static void main(String arg[]){
+		String str;
+		Long num = 98273450987846352L;
+		str = Long.toString(num);
+		System.out.println(str);
+	}
+
+}
+		  `,
+      output: `E:\Java\practical file\DataConversion_source>javac -d . Q4.java
+
+E:\Java\practical file\DataConversion_source>java DataConversion.Q4
+98273450987846352
+`
+    },
+    {
+      question: "5. How to convert String to float",
+      source_code: `package DataConversion;
+	
+class Q5{
+	public static void main(String arg[]){
+		String str;
+		str = "0.2232";
+		float num = Float.parseFloat(str);
+		System.out.println(num);
+	}
+
+}
+		  `,
+      output: `E:\Java\practical file\DataConversion_source>javac -d . Q5.java
+
+E:\Java\practical file\DataConversion_source>java DataConversion.Q5
+0.2232
+`
+    },
+    {
+      question: "6. How to convert float to String",
+      source_code: `package DataConversion;
+	
+class Q6{
+	public static void main(String arg[]){
+		String str;
+		float num = 3.14f;	;
+		str = Float.toString(num);
+		System.out.println(str);
+	}
+
+}
+		  `,
+      output: `E:\Java\practical file\DataConversion_source>javac -d . Q6.java
+
+E:\Java\practical file\DataConversion_source>java DataConversion.Q6
+3.14
+`
+    },
+    {
+      question: "7. How to convert String to double",
+      source_code: `package DataConversion;
+	
+class Q7{
+	public static void main(String arg[]){
+		String str;
+		str = "0.23793224300";
+		double num = Double.parseDouble(str);
+		System.out.println(num);
+	}
+
+}
+		  `,
+      output: `E:\Java\practical file\DataConversion_source>javac -d . Q7.java
+
+E:\Java\practical file\DataConversion_source>java DataConversion.Q7
+0.237932243
+`
+    },
+    {
+      question: "8. How to convert double to String",
+      source_code: `package DataConversion;
+	
+class Q8{
+	public static void main(String arg[]){
+		String str;
+		double num = 0.23793224300;
+		str = Double.toString(num);
+		System.out.println(str);
+	}
+
+}
+		  `,
+      output: `E:\Java\practical file\DataConversion_source>javac -d . Q8.java
+
+E:\Java\practical file\DataConversion_source>java DataConversion.Q8
+0.237932243
+`
+    },
+    {
+      question: "9. How to convert String to Date",
+      source_code: `package DataConversion;
+import java.time.LocalDate;	
+class Q9{
+	public static void main(String arg[]){
+		String datestr;
+		datestr = "2026-10-25";
+		LocalDate date = LocalDate.parse(datestr);
+		System.out.println("Date" + date);
+	}
+
+}
+		  `,
+      output: `E:\Java\practical file\DataConversion_source>javac -d . Q9.java
+
+E:\Java\practical file\DataConversion_source>java DataConversion.Q9
+Date2026-10-25
+`
+    },
+    {
+      question: "10. How to convert Date to String",
+      source_code: `package DataConversion;
+import java.time.LocalDateTime;	
+import java.time.format.DateTimeFormatter;
+class Q10{
+	public static void main(String arg[]){
+		LocalDateTime  date = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-DD HH:mm:ss");
+		String str = date.format(formatter);
+		System.out.println("Date" + str);
+	}
+
+}
+		  `,
+      output: `E:\Java\practical file\DataConversion_source>javac -d . Q10.java
+
+E:\Java\practical file\DataConversion_source>java DataConversion.Q10
+Date2026-11-305 20:57:22
+`
+    },
+    {
+      question: "11. How to convert String to char",
+      source_code: `package DataConversion;
+
+class Q11{
+	public static void main(String arg[]){
+		String str;
+		str = "Hello everyone";
+		char ch = str.charAt(0);
+		System.out.println(ch);		
+	}
+
+}
+		  `,
+      output: `E:\Java\practical file\DataConversion_source>javac -d . Q11.java
+
+E:\Java\practical file\DataConversion_source>java DataConversion.Q11
+H
+`
+    },
+    {
+      question: "12. How to convert char to String",
+      source_code: `package DataConversion;
+import java.lang.String;
+class Q12{
+	public static void main(String arg[]){
+		char ch = 'h';
+		String str = String.valueOf(ch);
+		System.out.println(str);		
+	}
+
+}
+		  `,
+      output: `E:\Java\practical file\DataConversion_source>javac -d . Q12.java
+
+E:\Java\practical file\DataConversion_source>java DataConversion.Q12
+h
+`
+    },
+    {
+      question: "13. How to convert String to Object",
+      source_code: `package DataConversion;
+class Q13{
+	public static void main(String arg[]){
+		String str;
+		str = "Hello everyone";
+		Object obj = str;
+		System.out.println(obj.getClass().getName());	
+	}
+
+}
+		  `,
+      output: `E:\Java\practical file\DataConversion_source>javac -d . Q13.java
+
+E:\Java\practical file\DataConversion_source>java DataConversion.Q13
+java.lang.String
+`
+    },
+    {
+      question: "14. How to convert Object to String",
+      source_code: `package DataConversion;
+class Q14{
+	public static void main(String arg[]){
+		Object obj = 23;
+		String str;
+		str = obj.toString();
+		System.out.println(str);	
+	}
+
+}
+		  `,
+      output: `E:\Java\practical file\DataConversion_source>javac -d . Q14.java
+
+E:\Java\practical file\DataConversion_source>java DataConversion.Q14
+23
+`
+    },
+    {
+      question: "15. How to convert int to long",
+      source_code: `package DataConversion;
+class Q15{
+	public static void main(String arg[]){
+		int num;
+		num = 230;
+		long num2 = (long)num;
+		System.out.println(num2);	
+	}
+
+}
+		  `,
+      output: `E:\Java\practical file\DataConversion_source>javac -d . Q15.java
+
+E:\Java\practical file\DataConversion_source>java DataConversion.Q15
+230
+`
+    },
+    {
+      question: "16. How to convert long to int",
+      source_code: `package DataConversion;
+class Q16{
+	public static void main(String arg[]){
+		long num = 2342334L;
+		int num2 = (int)num;
+		System.out.println(num2);	
+	}
+
+}
+		  `,
+      output: `E:\Java\practical file\DataConversion_source>javac -d . Q16.java
+
+E:\Java\practical file\DataConversion_source>java DataConversion.Q16
+2342334
+`
+    },
+    {
+      question: "17. How to convert int to double",
+      source_code: `package DataConversion;
+class Q17{
+	public static void main(String arg[]){
+		int num = 20;
+		double num2 = (double)num;
+		System.out.println(num2);	
+	}
+
+}
+		  `,
+      output: `E:\Java\practical file\DataConversion_source>javac -d . Q17.java
+
+E:\Java\practical file\DataConversion_source>java DataConversion.Q17
+20.0
+`
+    },
+    {
+      question: "18. How to convert double to int",
+      source_code: `package DataConversion;
+class Q18{
+	public static void main(String arg[]){
+		double num = 2.016052311QQ0;
+		int num2 = (int)num;
+		System.out.println(num2);	
+	}
+
+}
+		  `,
+      output: `E:\Java\practical file\DataConversion_source>javac -d . Q18.java
+
+E:\Java\practical file\DataConversion_source>java DataConversion.Q18
+2
+`
+    },
+    {
+      question: "19. How to convert char to int",
+      source_code: `package DataConversion;
+class Q19{
+	public static void main(String arg[]){
+		char ch = '5';
+		int num = ch-'0';
+		System.out.println(num);	
+	}
+
+}
+		  `,
+      output: `E:\Java\practical file\DataConversion_source>javac -d . Q19.java
+
+E:\Java\practical file\DataConversion_source>java DataConversion.Q19
+5
+`
+    },
+    {
+      question: "20. How to convert int to char",
+      source_code: `package DataConversion;
+class Q20{
+	public static void main(String arg[]){
+		int num = 5;
+		char ch = (char)(num+'0');
+		System.out.println(ch);	
+	}
+
+}
+		  `,
+      output: `E:\Java\practical file\DataConversion_source>javac -d . Q20.java
+
+E:\Java\practical file\DataConversion_source>java DataConversion.Q20
+5
+`
+    },
+    {
+      question: "21. How to convert String to boolean",
+      source_code: `package DataConversion;
+class Q21{
+	public static void main(String arg[]){
+		String str;
+		str = "true";
+		Boolean b = Boolean.parseBoolean(str);
+		System.out.println(b);	
+	}
+
+}
+		  `,
+      output: `E:\Java\practical file\DataConversion_source>javac -d . Q21.java
+
+E:\Java\practical file\DataConversion_source>java DataConversion.Q21
+true
+`
+    },
+    {
+      question: "22. How to convert boolean to String",
+      source_code: `package DataConversion;
+import java.lang.String;
+class Q22{
+	public static void main(String arg[]){
+		Boolean b = false;
+		String str = String.valueOf(b);
+		System.out.println(str);	
+	}
+
+}
+		  `,
+      output: `E:\Java\practical file\DataConversion_source>javac -d . Q22.java
+
+E:\Java\practical file\DataConversion_source>java DataConversion.Q22
+false
+`
+    },
+    {
+      question: "23. How to convert Date to Timestamp",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "24. How to convert Timestamp to Date",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "25. How to convert Binary to Decimal",
+      source_code: `package DataConversion;
+import java.lang.String;
+class Q25{
+	public static void main(String arg[]){
+		String str = "1111";
+		int len = str.length();
+		int arr[];
+		int sum = 0;
+		arr = new int[len];
+		for(int i =0 ;i<len;i++){
+			char ch = str.charAt(i);
+			arr[i] = ch-'0';
+		}	
+		for(int j = 0;j<len;j++){
+			sum += arr[j]*Math.pow(2,len-1-j);
+		}
+		System.out.println(sum);
+	}
+
+}
+		  `,
+      output: `E:\Java\practical file\DataConversion_source>javac -d . Q25.java
+
+E:\Java\practical file\DataConversion_source>java DataConversion.Q25
+15
+`
+    },
+    {
+      question: "26. How to convert Decimal to Binary",
+      source_code: `package DataConversion;
+import java.lang.String;
+import java.util.Collections;
+import java.util.Arrays;
+class Q26{
+	public static void main(String arg[]){
+		int num = 25;
+		int arr[];
+		arr = new int[10];
+		int value = num;
+		int i = 0;
+		int rem;
+		while(value>0){
+			rem = value%2;
+			arr[i] = rem;
+			value = value/2;
+			i++;
+		}
+		Collections.reverse(Arrays.asList(arr));
+		System.out.println(Arrays.toString(arr));
+	
+	}
+
+}
+		  `,
+      output: `E:\Java\practical file\DataConversion_source>javac -d . Q26.java
+
+E:\Java\practical file\DataConversion_source>java DataConversion.Q26
+[1, 0, 0, 1, 1, 0, 0, 0, 0, 0]
+`
+    },
+    {
+      question: "27. How to convert Hex to Decimal",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "28. How to convert Decimal to Hex",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "29. How to convert Octal to Decimal",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "30. How to convert Decimal to Octal",
+      source_code: ``,
+      output: ``
+    }
+
+    ]
+};
+
+
+// ======================================
+// SET PAGE TITLE
+// ======================================
+
+document.getElementById("SINGLED").textContent = topicData.title;
+
+
+// ======================================
+// DISPLAY QUESTIONS
+// ======================================
+
+const container = document.getElementById("quesList");
+
+topicData.queries.forEach((q, index) => {
+
+    const div = document.createElement("div");
+    div.className = "query-box";
+
+    // Question Title
+    const title = document.createElement("div");
+    title.className = "query-title";
+    title.textContent = `${q.question}`;
+
+    // Show Answer Button
+    const button = document.createElement("button");
+    button.textContent = "Show Answer";
+
+    // Answer Section
+    const answer = document.createElement("div");
+    answer.className = "answer";
+
+    // Answer Container
+    const answerContainer = document.createElement("div");
+    answerContainer.className = "answer-container";
+
+    // Source Code
+    const codeBox = document.createElement("div");
+    codeBox.className = "query-code";
+
+    const codeHeading = document.createElement("h3");
+    codeHeading.textContent = "Java Source Code";
+
+    const code = document.createElement("pre");
+
+    code.textContent = q.source_code.trim()
+        ? q.source_code
+        : "Java source code not added yet.";
+
+    if (!q.source_code.trim()) {
+        code.className = "empty";
+    }
+
+    codeBox.appendChild(codeHeading);
+    codeBox.appendChild(code);
+
+    // Output
+    const outputBox = document.createElement("div");
+    outputBox.className = "output";
+
+    const outputHeading = document.createElement("h3");
+    outputHeading.textContent = "Output";
+
+    const output = document.createElement("pre");
+
+    output.textContent = q.output.trim()
+        ? q.output
+        : "Output not added yet.";
+
+    if (!q.output.trim()) {
+        output.className = "empty";
+    }
+
+    outputBox.appendChild(outputHeading);
+    outputBox.appendChild(output);
+
+    // Add both boxes
+    answerContainer.appendChild(codeBox);
+    answerContainer.appendChild(outputBox);
+
+    answer.appendChild(answerContainer);
+
+
+    // Button Functionality
+    button.addEventListener("click", function () {
+
+        if (answer.style.display === "block") {
+
+            answer.style.display = "none";
+            button.textContent = "Show Answer";
+
+        } else {
+
+            answer.style.display = "block";
+            button.textContent = "Hide Answer";
+
+        }
+
+    });
+
+    // Add everything to page
+    div.appendChild(title);
+    div.appendChild(button);
+    div.appendChild(answer);
+
+    container.appendChild(div);
+
+});
+
+</script>
+
+</body>
+</html>

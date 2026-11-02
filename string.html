@@ -1,0 +1,1404 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java - </title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #F3F4FA;
+    color: #28345C;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 18px;
+    border-radius: 15px;
+    font-size: 26px;
+    font-weight: bold;
+    background: #28345C;
+    color: #FFFFFF;
+    margin-bottom: 25px;
+}
+
+/* Question Box */
+.query-box {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(40, 52, 92, 0.07);
+}
+
+.query-title {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Buttons */
+button {
+    padding: 9px 16px;
+    border: none;
+    border-radius: 20px;
+    background: #28345C;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #6556B8;
+}
+
+/* Answer Section */
+.answer {
+    display: none;
+    margin-top: 18px;
+    border-top: 2px solid #D6D9EA;
+    padding-top: 15px;
+}
+
+.answer-container {
+    display: flex;
+    gap: 15px;
+    align-items: stretch;
+}
+
+/* Code and Output */
+.query-code,
+.output {
+    flex: 1;
+    min-width: 0;
+    background: #F3F4FA;
+    padding: 15px;
+    border: 1px solid #D6D9EA;
+    border-radius: 8px;
+    overflow: auto;
+}
+
+.query-code h3,
+.output h3 {
+    margin-top: 0;
+    font-size: 17px;
+    color: #28345C;
+}
+
+/* Java Code */
+pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #28345C;
+    margin: 0;
+}
+
+/* Empty Content */
+.empty {
+    color: #777777;
+    font-style: italic;
+    font-family: Arial, sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    body {
+        padding: 12px;
+    }
+
+    .header {
+        font-size: 21px;
+    }
+
+    .answer-container {
+        flex-direction: column;
+    }
+
+    .query-code,
+    .output {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Topic Header -->
+<div class="header" id="SINGLED">
+    STRING
+</div>
+
+<!-- Questions -->
+<div id="quesList"></div>
+
+<script>
+
+// ======================================
+// JAVA PROGRAMMING QUESTIONS
+// EDIT SOURCE CODE AND OUTPUT HERE
+// ======================================
+
+const topicData = {
+
+    title: "STRING",
+
+    queries: [
+
+        {
+            question: "1. Program to Check if a String contains only digits?",
+            source_code: `package Stringss;
+
+class Q1{
+	public static void main(String arg[]){
+		String str;
+		str = "123123";
+		only_digit(str);
+	}
+
+	public static void only_digit(String str){
+		int len = str.length();
+		int count = 0;
+		for(int i = 0;i<len;i++){
+			if((int)str.charAt(i)>=48 && (int)str.charAt(i)<=57){
+				count++;
+			}
+		}
+		if(count == len){
+			System.out.print("The string only contain digits");
+		}
+		else{
+			int ch_len = len - count;
+			System.out.print("The string contain " + ch_len + " character");
+		}
+	}
+}
+`,
+            output: `E:\Java\practical file\String_source>javac -d . Q1.java
+
+E:\Java\practical file\String_source>java Stringss.Q1
+The string only contain digits`
+        },
+        {
+            question: "2. Program to perform Deep Copy for String?",
+            source_code: ``,
+            output: ` `
+        },
+        {
+            question: "3. Program to prove String is immutable programmatically?",
+            source_code: `package Stringss;
+
+class Q3{
+	public static void main(String arg[]){
+		String str;
+
+		str = "Hello";
+		System.out.print(System.identityHashCode(str)+"\n");
+		str = "bye";
+		System.out.print(System.identityHashCode(str));
+		System.out.print("\nSame str object refering to different address and therefore string are immutable");
+	}
+
+}
+`,
+            output: `E:\Java\practical file\String_source>javac -d . Q3.java
+
+E:\Java\practical file\String_source>java Stringss.Q3
+498931366
+622488023
+Same str object refering to different address and therefore string are immutable`
+        },
+        {
+            question: "4. Program to remove all occurrences of a given character from input String?",
+            source_code: ` `,
+            output: ` `
+        },
+        {
+            question: "5. Program to append the string using StringBuffer class.",
+            source_code: `package Stringss;
+
+class Q5{
+	public static void main(String arg[]){
+		String str;
+		str = "world";
+		StringBuffer sb = new StringBuffer("hello");
+		sb.append(str);
+		System.out.println(sb);
+	}
+}`,
+            output: `E:\Java\practical file\String_source>javac -d . Q5.java
+
+E:\Java\practical file\String_source>java Stringss.Q5
+helloworld
+`
+        },
+        {
+            question: "6. Program to insert the string using StringBuffer class.",
+            source_code: `package Stringss;
+
+class Q6{
+	public static void main(String arg[]){
+		String str;
+		str = "world";
+		StringBuffer sb = new StringBuffer("hello");
+		sb.insert(0,str);
+		System.out.println(sb);
+	}
+}`,
+            output: `E:\Java\practical file\String_source>javac -d . Q6.java
+
+E:\Java\practical file\String_source>java Stringss.Q6
+worldhello
+`
+        },
+        {
+            question: "7. Program to Add Characters to a String.",
+            source_code: `package Stringss;
+
+class Q7{
+	public static void main(String arg[]){
+		String str;
+		str = "d";
+		StringBuffer sb = new StringBuffer("worl");
+		sb.insert(4,str);
+		System.out.println(sb);
+	}
+}`,
+            output: `E:\Java\practical file\String_source>javac -d . Q7.java
+
+E:\Java\practical file\String_source>java Stringss.Q7
+world
+`
+        },
+        {
+            question: "8. Program to Add Characters to a String.",
+            source_code: `package Stringss;
+
+class Q10{
+	public static void main(String arg[]){
+		String str = "level";
+		int left = 0;
+		int right = str.length() - 1;
+		
+		while(left<right){
+			if(str.charAt(left) != str.charAt(right)){
+				return false;
+			}
+			left++;
+			right--;
+		}
+		
+	}
+	
+	
+}`,
+            output: `E:\Java\practical file\String_source>javac -d . Q8.java
+
+E:\Java\practical file\String_source>java Stringss.Q8
+palindrome
+`
+        },
+        {
+            question: "9. Program to Check Anagram.",
+            source_code: ` `,
+            output: ` `
+        },
+        {
+            question: "10. Program to check whether a string is a Palindrome.",
+            source_code: ` `,
+            output: ` `
+        },
+        {
+            question: "11. Program to Convert Enum to String.",
+            source_code: `
+package Stringss;
+
+class Q11 {
+        enum day {
+        Monday, Tuesday, Wednesday
+    }
+
+    public static void main(String[] args) {
+        day d1 = day.Monday;
+        String str = d1.toString();
+        System.out.println(str);
+    }
+}
+`,
+            output: `E:\Java\practical file\String_source>javac -d . Q11.java
+
+E:\Java\practical file\String_source>java Stringss.Q11
+Monday
+`
+        },
+        {
+            question: "12. Program to Convert String to String Array.",
+            source_code: `package Stringss;
+import java.io.*;
+
+class Q12 {
+    public static void main(String args[]) {
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){
+	
+		System.out.println("Enter a string:");
+		String str = br.readLine();
+        	String arr[] = str.split(" ");
+        	System.out.println("String Array:");
+        	for (int i = 0; i < arr.length; i++) {
+            		System.out.println(arr[i]);
+        	}
+	}
+	catch(IOException e){
+		System.out.println("An error occured");
+	}
+
+    }
+}`,
+            output: `E:\Java\practical file\String_source>javac -d . Q12.java
+
+E:\Java\practical file\String_source>java Stringss.Q12
+Enter a string:
+Good morning
+String Array:
+Good
+morning
+`
+        },
+        {
+            question: "13. Program to count number of words in a String?",
+            source_code: `package Stringss;
+import java.io.*;
+
+class Q13{
+    public static void main(String args[]) {
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){
+	
+		System.out.println("Enter a string:");
+		String str = br.readLine();
+        	String arr[] = str.trim().split("\\s+");
+		int count = str.trim().isEmpty() ? 0 : arr.length;
+		System.out.println("String Array:");
+    		System.out.println("Total Words:"+count);
+	}
+	catch(IOException e){
+		System.out.println("An error occured");
+	}
+
+    }
+}`,
+            output: `E:\Java\practical file\String_source>java Stringss.Q13
+Enter a string:
+Today is friday
+String Array:
+Total Words:3
+`
+        },
+        {
+            question: "14. Program to count the total number of characters in a string.",
+            source_code: `package Stringss;
+import java.io.*;
+
+class Q14{
+    public static void main(String args[]) {
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){
+	
+		System.out.println("Enter a string:");
+		String str = br.readLine();
+        	System.out.println("Total characters: " + str.length());
+	}
+	catch(IOException e){
+		System.out.println("An error occured");
+	}
+
+    }
+}`,
+            output: `E:\Java\practical file\String_source>javac -d . Q14.java
+
+E:\Java\practical file\String_source>java Stringss.Q14
+Enter a string:
+tanish
+Total characters: 6
+`
+        },
+        {
+            question: "15. Program to count the total number of punctuation characters exists in a String.",
+            source_code: `package Stringss;
+import java.io.*;
+
+class Q15{
+    public static void main(String args[]) {
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){
+	
+		System.out.println("Enter a string:");
+		String str = br.readLine();
+        	int count = 0;
+
+        	for (int i = 0; i < str.length(); i++) {
+            		char ch = str.charAt(i);
+
+            		if (!Character.isLetterOrDigit(ch) &&
+                	!Character.isWhitespace(ch)) {
+                	count++;
+            		}
+       		 }
+
+        System.out.println("Total punctuation characters: " + count);
+
+	}
+	catch(IOException e){
+		System.out.println("An error occured");
+	}
+
+    }
+}`,
+            output: `E:\Java\practical file\String_source>javac -d . Q15.java
+
+E:\Java\practical file\String_source>java Stringss.Q15
+Enter a string:
+rahul! wait for me
+Total punctuation characters: 1
+`
+        },
+        {
+            question: "16. Program to count the total number of vowels and consonants in a string.",
+            source_code: `package Stringss;
+import java.io.*;
+
+class Q16{
+    public static void main(String args[]) {
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){
+	
+		System.out.println("Enter a string:");
+		String str = br.readLine();
+        	int vowels = 0, consonants = 0;
+
+        	for (int i = 0; i < str.length(); i++) {
+          		char ch = str.charAt(i);
+
+            		if (ch >= 'a' && ch <= 'z') {
+                	if (ch == 'a' || ch == 'e' || ch == 'i' ||
+                    	ch == 'o' || ch == 'u') {
+                    	vowels++;
+                } 
+		else {
+                    consonants++;
+                }
+            }
+        }
+
+        System.out.println("Vowels: " + vowels);
+        System.out.println("Consonants: " + consonants);
+
+	}
+	catch(IOException e){
+		System.out.println("An error occured");
+	}
+
+    }
+}`,
+            output: ``
+        },
+        {
+            question: "17. Program to determine whether a given string is palindrome.",
+            source_code: `package Stringss;
+import java.io.*;
+
+class Q17{
+    public static void main(String args[]) {
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){
+	
+		System.out.println("Enter a string:");
+		String str = br.readLine();
+        	String rev = "";
+
+        	for (int i = str.length() - 1; i >= 0; i--) {
+            		rev = rev + str.charAt(i);
+        	}
+
+        if (str.equalsIgnoreCase(rev)) {
+            System.out.println("String is Palindrome");
+        } 
+	else {
+            System.out.println("String is not Palindrome");
+        }
+
+	}
+	catch(IOException e){
+		System.out.println("An error occured");
+	}
+
+    }
+}`,
+            output: `E:\Java\practical file\String_source>javac -d . Q17.java
+
+E:\Java\practical file\String_source>java Stringss.Q17
+Enter a string:
+level
+String is Palindrome
+`
+        },
+        {
+            question: "18. Program to determine whether one string is a rotation of another.",
+            source_code: `package Stringss;
+import java.io.*;
+
+class Q18{
+    public static void main(String args[]) {
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){
+	
+		System.out.println("Enter a string:");
+		String str1 = br.readLine();
+		System.out.println("Enter a string:");
+		String str2 = br.readLine();
+        	
+        	if (str1.length() == str2.length() &&
+            		(str1 + str1).contains(str2)) {
+            	System.out.println("Strings are rotations");
+        	} 
+		else {
+            		System.out.println("Strings are not rotations");
+        	}
+
+
+	}
+	catch(IOException e){
+		System.out.println("An error occured");
+	}
+
+    }
+}`,
+            output: `E:\Java\practical file\String_source>javac -d . Q18.java
+
+E:\Java\practical file\String_source>java Stringss.Q18
+Enter a string:
+good evening
+Enter a string:
+evening good
+Strings are not rotations
+`
+        },
+        {
+            question: "19. Program to divide a string in 'N' equal parts.",
+            source_code: `package Stringss;
+import java.io.*;
+
+class Q19{
+    public static void main(String args[]) {
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){
+	
+		System.out.println("Enter a string:");
+		String str1 = br.readLine();
+		System.out.println("Enter a number of parts:");
+		String str2 = br.readLine();
+		int n = Integer.parseInt(str2);
+        	
+        	if (n <= 0 || str1.length() % n != 0) {
+            		System.out.println("String cannot be divided into equal parts");
+        	} 
+		else {
+            		int size = str1.length() / n;
+
+            		System.out.println("Equal parts:");
+
+            		for (int i = 0; i < str1.length(); i += size) {
+                	System.out.println(str1.substring(i, i + size));
+            		}
+        	}
+
+
+	}
+	catch(IOException e){
+		System.out.println("An error occured");
+	}
+
+    }
+}`,
+            output: `E:\Java\practical file\String_source>javac -d . Q19.java
+
+E:\Java\practical file\String_source>java Stringss.Q19
+Enter a string:
+good
+Enter a number of parts:
+4
+Equal parts:
+g
+o
+o
+d
+`
+        },
+        {
+            question: "20. Program to find all subsets of a string.",
+            source_code: `package Stringss;
+import java.io.*;
+
+class Q20{
+    public static void main(String args[]) {
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){
+	
+		System.out.println("Enter a string:");
+		String str = br.readLine();
+		 int n = str.length();
+
+        	System.out.println("All subsets:");
+
+        	for (int i = 0; i < (1 << n); i++) {
+            		String sub = "";
+
+            	for (int j = 0; j < n; j++) {
+                	if ((i & (1 << j)) != 0) {
+                    		sub = sub + str.charAt(j);
+                	}
+            	}
+
+                System.out.println(sub);
+        	}
+
+
+	}
+	catch(IOException e){
+		System.out.println("An error occured");
+	}
+
+    }
+}`,
+            output: `E:\Java\practical file\String_source>javac -d . Q20.java
+
+E:\Java\practical file\String_source>java Stringss.Q20
+Enter a string:
+helllo
+All subsets:
+
+h
+e
+he
+l
+hl
+el
+hel
+l
+hl
+el
+hel
+ll
+hll
+ell
+hell
+l
+hl
+el
+hel
+ll
+hll
+ell
+hell
+ll
+hll
+ell
+hell
+lll
+hlll
+elll
+helll
+o
+ho
+eo
+heo
+lo
+hlo
+elo
+helo
+lo
+hlo
+elo
+helo
+llo
+hllo
+ello
+hello
+lo
+hlo
+elo
+helo
+llo
+hllo
+ello
+hello
+llo
+hllo
+ello
+hello
+lllo
+hlllo
+elllo
+helllo`
+        },
+        {
+            question: "21. Program to find all the permutations of a string.",
+            source_code: `package Stringss;
+import java.io.*;
+
+class Q21{
+    public static void main(String args[]) {
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){
+	
+		System.out.println("Enter a string:");
+		String str = br.readLine();
+		System.out.println("All permutations:");
+        	permutation(str, "");		
+	}
+	catch(IOException e){
+		System.out.println("An error occured");
+	}
+
+    }
+    static void permutation(String str, String ans) {
+        if (str.length() == 0) {
+            System.out.println(ans);
+            return;
+        }
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+
+            String left = str.substring(0, i);
+            String right = str.substring(i + 1);
+
+            permutation(left + right, ans + ch);
+        }
+    }
+}`,
+            output: `
+E:\Java\practical file\String_source>javac -d . Q21.java
+
+E:\Java\practical file\String_source>java Stringss.Q21
+Enter a string:
+good
+All permutations:
+good
+godo
+good
+godo
+gdoo
+gdoo
+ogod
+ogdo
+oogd
+oodg
+odgo
+odog
+ogod
+ogdo
+oogd
+oodg
+odgo
+odog
+dgoo
+dgoo
+dogo
+doog
+dogo
+doog
+`
+        },
+        {
+            question: "22. Program to find maximum and minimum occurring character in a string.",
+            source_code: ` `,
+            output: ` `
+        },
+        {
+            question: "23. Program to find Reverse of the string.",
+            source_code: ` `,
+            output: ` `
+        },
+        {
+            question: "24. Program to find the duplicate characters in a string.",
+            source_code: ` `,
+            output: ` `
+        },
+        {
+            question: "25. Program to find the duplicate words in a string.",
+            source_code: ` `,
+            output: ` `
+        },
+        {
+            question: "26. Program to find the frequency of characters.",
+            source_code: ` `,
+            output: ` `
+        },
+        {
+            question: "27. Program to find the largest and smallest word in a string.",
+            source_code: ` `,
+            output: ` `
+        },
+        {
+            question: "28. Program to find the longest repeating sequence in a string.",
+            source_code: ` `,
+            output: ` `
+        },
+        {
+            question: "29. Program to find the most repeated word in a text file.",
+            source_code: ` `,
+            output: ` `
+        },
+        {
+            question: "30. Program to find the number of the words in the given text file.",
+            source_code: ` `,
+            output: ` `
+        },
+        {
+            question: "31. Program to Get a Character From the Given String.",
+            source_code: `package Stringss;
+
+class Q31{
+	public static void main(String arg[]){
+		String str = "Good evening everyone";
+		char ch = str.charAt(0);
+		System.out.println("The string is :"+str);
+		System.out.println("The character from it is :"+ch);
+	}
+}`,
+            output: `E:\Java\practical file\String_source>javac -d . Q31.java
+
+E:\Java\practical file\String_source>java Stringss.Q31
+The string is :Good evening everyone
+The character from it is :G
+`
+        },
+        {
+            question: "32. Program to Insert a string into another string.",
+            source_code: `package Stringss;
+
+class Q31{
+	public static void main(String arg[]){
+		String str = "Good evening everyone";
+		String str2 = "I am tanish";
+		str.copyValueOf(str2.toCharArray());
+		System.out.println("The string is :"+str);
+	}
+}`,
+            output: `E:\Java\practical file\String_source>javac -d . Q32.java
+
+E:\Java\practical file\String_source>java Stringss.Q32
+The string is :Good evening everyone
+`
+        },
+        {
+            question: "33. Program to Iterate Over Characters in String.",
+            source_code: ` `,
+            output: ` `
+        },
+        {
+            question: "34. Program to Print a New Line in String.",
+            source_code: ` `,
+            output: ` `
+        },
+        {
+            question: "35. Program to Print even length words.",
+            source_code: ` `,
+            output: ` `
+        },
+        {
+            question: "36. Program to print smallest and biggest possible palindrome word in a given string.",
+            source_code: ` `,
+            output: ` `
+        },
+        {
+            question: "37. Program to remove all the white spaces from a string.",
+            source_code: ` `,
+            output: ` `
+        },
+        {
+            question: "38. Program to replace lower-case characters with upper-case and vice-versa.",
+            source_code: ` `,
+            output: ` `
+        },
+        {
+            question: "39. Program to replace the spaces of a string with a specific character.",
+            source_code: ` `,
+            output: ` `
+        },
+        {
+            question: "40. Program to separate the Individual Characters from a String.",
+            source_code: ` `,
+            output: ` `
+        },
+        {
+            question: "41. Program to Splitting into a number of sub-strings.",
+            source_code: `
+package Stringss;
+
+class Q41 {
+    public static void main(String arg[]) {
+        String str = "HELLO GOOD AFTERNOON EVERYONE";
+        substring(str);
+    }
+
+    public static void substring(String str) {
+        String sub_str;
+        int len = str.length();
+
+        for(int i = 0; i < len; i++) {
+            sub_str = str.substring(i, i + 1);
+            System.out.println(sub_str);
+        }
+    }
+}
+`,
+            output: `E:\Java\practical file\String_source>javac -d . Q41.java
+
+E:\Java\practical file\String_source>java Stringss.Q41
+H
+E
+L
+L
+O
+
+G
+O
+O
+D
+
+A
+F
+T
+E
+R
+N
+O
+O
+N
+
+E
+V
+E
+R
+Y
+O
+N
+E
+`
+        },
+        {
+            question: "42. Program to swap two string variables without using third or temp variable.",
+            source_code: `package Stringss;
+import java.io.*;
+class Q42{
+	public static void main(String arg[]){
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		try{
+			System.out.println("Enter string 1:");
+			StringBuffer str1 = new StringBuffer(reader.readLine());
+		 	System.out.println("Enter string 2:");
+			StringBuffer str2 = new StringBuffer(reader.readLine());			
+			swap_StringVar(str1,str2);		
+		}	
+		catch (IOException e){
+			System.out.println("An error occured while reading input.");
+		}
+	}
+
+	public static void swap_StringVar(StringBuffer str1,StringBuffer str2){
+		int len1 = str1.length();
+		int len2 = str2.length();
+		int min = Math.min(len1,len2);
+		int left = Math.abs(len1-len2);
+		for(int i = 0;i<min;i++){
+			char ch1 = str1.charAt(i);
+			char ch2 = str2.charAt(i);
+			str1.setCharAt(i,ch2);
+			str2.setCharAt(i,ch1);
+			
+		}
+		System.out.println(str1);
+		System.out.println(str2);
+		
+	}
+}`,
+            output: `E:\Java\practical file\String_source>javac -d . Q42.java
+
+E:\Java\practical file\String_source>java Stringss.Q42
+Enter string 1:
+good
+Enter string 2:
+morning
+morn
+gooding
+`
+        },
+        {
+            question: "43. Program to Swapping Pair of Characters.",
+            source_code: `package Stringss;
+import java.io.*;
+class Q43{
+	public static void main(String args[]){
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		try{
+			System.out.println("Enter string 1:");
+			String str = reader.readLine();
+			swapping_pair(str);
+		}			
+		catch (IOException e){
+			System.out.println("An error occured while reading input.");
+		}
+
+	}
+
+	public static void swapping_pair(String str){
+		int len = str.length();
+		StringBuffer str2= new StringBuffer();
+		if(len%2 == 0){
+			for(int i = 0 ;i<len-1;i+=2){
+				char ch1 = str.charAt(i);
+				char ch2 = str.charAt(i+1);
+				str2.append(ch2);
+				str2.append(ch1);
+			}
+		}
+		else{
+			for(int i=0;i<len-2;i+=2){
+				char ch1 = str.charAt(i);
+				char ch2 = str.charAt(i+1);
+				str2.append(ch2);
+				str2.append(ch1);
+
+			}
+		}
+		System.out.println(str2);	
+	}
+}`,
+            output: `E:\Java\practical file\String_source>javac -d . Q43.java
+
+E:\Java\practical file\String_source>java Stringss.Q43
+Enter string 1:
+we are good
+ewa erg oo
+`
+        },
+        {
+            question: "44. Read two String user input and check if first contains second?",
+            source_code: `package Stringss;
+import java.io.*;
+class Q44{
+	public static void main(String arg[]){
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		try{
+			System.out.println("Enter string 1:");
+			String str1 = reader.readLine();
+			System.out.println("Enter string 2:");
+			String str2 = reader.readLine();
+			boolean b = string_inbetween(str1,str2);
+			if(b){
+				System.out.println("The second string is in first string");
+			}
+			else{
+				System.out.println("The second string is not in first string");
+			}
+		
+		}	
+		catch (IOException e){
+			System.out.println("An error occured while reading input.");
+		}
+	}
+
+	public static boolean string_inbetween(String str1,String str2){
+		int len1 = str1.length();
+		int len2 = str2.length();
+		Boolean istrue = true;
+		char ch = str2.charAt(0);
+		for(int j = 0;j<len1;j++){
+			if(str1.charAt(j) == ch){
+				int i = 0;
+				while(i<len2 && istrue){
+					if(str2.charAt(i) == str1.charAt(j)){
+						i++;
+						j++;
+					}
+					else{
+						istrue = false;
+					}
+				}
+				return istrue;
+			}
+		}
+		return false;	
+						
+ 	}
+}`,
+            output: `E:\Java\practical file\String_source>javac -d . Q44.java
+
+E:\Java\practical file\String_source>java Stringss.Q44
+Enter string 1:
+hello
+Enter string 2:
+ell
+The second string is in first string
+`
+        },
+        {
+            question: "45. Reverse String without reverse() function.",
+            source_code: `package Stringss;
+
+class Q45{
+	public static void main(String arg[]){
+		StringBuffer sb = new StringBuffer("evil");
+		char_matching(sb);
+	}
+
+	public static void char_matching(StringBuffer sb){
+		int len = sb.length();
+		StringBuffer sb2 = new StringBuffer();
+		for(int i = len-1 ;i>=0;i--){
+			sb2.append(sb.charAt(i));
+		}
+		System.out.println(sb2);
+ 	}
+}`,
+            output: `E:\Java\practical file\String_source>javac -d . Q45.java
+
+E:\Java\practical file\String_source>java Stringss.Q45
+live
+`
+        },
+        {
+            question: "46. Reverse String Word by Word.",
+            source_code: ` `,
+            output: ` `
+        },
+        {
+            question: "47. Write a program to check if two Strings are created with same characters?",
+            source_code: `package Stringss;
+
+class Q47{
+	public static void main(String arg[]){
+		StringBuffer sb1 = new StringBuffer("evil");
+		StringBuffer sb2 = new StringBuffer("liv");
+		Char_matching(sb1,sb2);
+	}
+
+	public static void Char_matching(StringBuffer sb1,StringBuffer sb2){
+		int len1 = sb1.length();
+		int len2 = sb2.length();
+		Boolean istrue = true;
+		for( int i = 0 ;i<len1;i++){
+			char ch = sb1.charAt(i);
+			for(int j = 0;j<len2;j++){
+				if(ch != sb2.charAt(j)){
+					istrue = false;
+					
+				}
+				else{
+					istrue = true;
+					break;
+				}
+			}
+			if(istrue == false){
+				System.out.println("The strings are not same");
+				break;
+			}
+		}
+		if(istrue == true){
+			System.out.println("The strings are  same");
+		}
+	}
+}`,
+            output: `E:\Java\practical file\String_source>javac -d . Q47.java
+
+E:\Java\practical file\String_source>java Stringss.Q47
+The strings are not same
+`
+        },
+        {
+            question: "48. Write a program to find out first non repeated character from input String?",
+            source_code: ` `,
+            output: ` `
+        },
+        {
+            question: "49. Create an object StringBuffer class to reverse the string.",
+            source_code: `package Stringss;
+
+class Q49{
+	
+	public static void main(String[] args){
+		StringBuffer sb = new StringBuffer("GoodMorning");
+		string_reverse(sb);
+	}
+
+	public static void string_reverse(StringBuffer str){
+		str = str.reverse();
+		System.out.println(str);
+	}
+}`,
+            output: `E:\Java\practical file\String_source>javac -d . Q49.java
+
+E:\Java\practical file\String_source>java Stringss.Q49
+gninroMdooG
+`
+        },
+        {
+            question: "50. Create an object StringBuffer class to show functionality of insert, append, delete and replace functions.",
+            source_code: `package Stringss;
+
+class Q50{
+	
+	public static void main(String[] args){
+		StringBuffer sb = new StringBuffer("GoodMorning");
+		string_insert(sb);
+		string_append(sb);
+		string_replace(sb);
+
+	}
+
+	public static void string_insert(StringBuffer str){
+		str = str.insert(0,"hello ");
+		System.out.println(str);
+	}
+	public static void string_append(StringBuffer str){
+		str = str.append(" everone");
+		System.out.println(str);
+	}
+	public static void string_replace(StringBuffer str){
+		str = str.delete(4,10);
+		str = str.replace(4,10,"Evening");
+		
+		System.out.println(str);
+	}
+}`,
+            output: `E:\Java\practical file\String_source>javac -d . Q50.java
+
+E:\Java\practical file\String_source>java Stringss.Q50
+hello GoodMorning
+hello GoodMorning everone
+hellEveningg everone
+`
+        }
+
+    ]
+};
+
+
+// ======================================
+// SET PAGE TITLE
+// ======================================
+
+document.getElementById("SINGLED").textContent = topicData.title;
+
+
+// ======================================
+// DISPLAY QUESTIONS
+// ======================================
+
+const container = document.getElementById("quesList");
+
+topicData.queries.forEach((q, index) => {
+
+    const div = document.createElement("div");
+    div.className = "query-box";
+
+    // Question Title
+    const title = document.createElement("div");
+    title.className = "query-title";
+    title.textContent = `${q.question}`;
+
+    // Show Answer Button
+    const button = document.createElement("button");
+    button.textContent = "Show Answer";
+
+    // Answer Section
+    const answer = document.createElement("div");
+    answer.className = "answer";
+
+    // Answer Container
+    const answerContainer = document.createElement("div");
+    answerContainer.className = "answer-container";
+
+    // Source Code
+    const codeBox = document.createElement("div");
+    codeBox.className = "query-code";
+
+    const codeHeading = document.createElement("h3");
+    codeHeading.textContent = "Java Source Code";
+
+    const code = document.createElement("pre");
+
+    code.textContent = q.source_code.trim()
+        ? q.source_code
+        : "Java source code not added yet.";
+
+    if (!q.source_code.trim()) {
+        code.className = "empty";
+    }
+
+    codeBox.appendChild(codeHeading);
+    codeBox.appendChild(code);
+
+    // Output
+    const outputBox = document.createElement("div");
+    outputBox.className = "output";
+
+    const outputHeading = document.createElement("h3");
+    outputHeading.textContent = "Output";
+
+    const output = document.createElement("pre");
+
+    output.textContent = q.output.trim()
+        ? q.output
+        : "Output not added yet.";
+
+    if (!q.output.trim()) {
+        output.className = "empty";
+    }
+
+    outputBox.appendChild(outputHeading);
+    outputBox.appendChild(output);
+
+    // Add both boxes
+    answerContainer.appendChild(codeBox);
+    answerContainer.appendChild(outputBox);
+
+    answer.appendChild(answerContainer);
+
+
+    // Button Functionality
+    button.addEventListener("click", function () {
+
+        if (answer.style.display === "block") {
+
+            answer.style.display = "none";
+            button.textContent = "Show Answer";
+
+        } else {
+
+            answer.style.display = "block";
+            button.textContent = "Hide Answer";
+
+        }
+
+    });
+
+    // Add everything to page
+    div.appendChild(title);
+    div.appendChild(button);
+    div.appendChild(answer);
+
+    container.appendChild(div);
+
+});
+
+</script>
+
+</body>
+</html>

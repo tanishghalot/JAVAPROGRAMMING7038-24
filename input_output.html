@@ -1,0 +1,487 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java - Input_output </title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #F3F4FA;
+    color: #28345C;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 18px;
+    border-radius: 15px;
+    font-size: 26px;
+    font-weight: bold;
+    background: #28345C;
+    color: #FFFFFF;
+    margin-bottom: 25px;
+}
+
+/* Question Box */
+.query-box {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(40, 52, 92, 0.07);
+}
+
+.query-title {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Buttons */
+button {
+    padding: 9px 16px;
+    border: none;
+    border-radius: 20px;
+    background: #28345C;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #6556B8;
+}
+
+/* Answer Section */
+.answer {
+    display: none;
+    margin-top: 18px;
+    border-top: 2px solid #D6D9EA;
+    padding-top: 15px;
+}
+
+.answer-container {
+    display: flex;
+    gap: 15px;
+    align-items: stretch;
+}
+
+/* Code and Output */
+.query-code,
+.output {
+    flex: 1;
+    min-width: 0;
+    background: #F3F4FA;
+    padding: 15px;
+    border: 1px solid #D6D9EA;
+    border-radius: 8px;
+    overflow: auto;
+}
+
+.query-code h3,
+.output h3 {
+    margin-top: 0;
+    font-size: 17px;
+    color: #28345C;
+}
+
+/* Java Code */
+pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #28345C;
+    margin: 0;
+}
+
+/* Empty Content */
+.empty {
+    color: #777777;
+    font-style: italic;
+    font-family: Arial, sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    body {
+        padding: 12px;
+    }
+
+    .header {
+        font-size: 21px;
+    }
+
+    .answer-container {
+        flex-direction: column;
+    }
+
+    .query-code,
+    .output {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Topic Header -->
+<div class="header" id="SINGLED">
+   Data Conversion
+</div>
+
+<!-- Questions -->
+<div id="quesList"></div>
+
+<script>
+
+// ======================================
+// JAVA PROGRAMMING QUESTIONS
+// EDIT SOURCE CODE AND OUTPUT HERE
+// ======================================
+
+const topicData = {
+
+    title: "INPUT OUTPUT",
+
+    queries: [
+      {
+      question: "1. Enter the character from user using InputStreamReader",
+      source_code: `package inio;
+import java.io.*;
+class Q1{
+	public static void main(String agr[]){
+		try{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.print("enter the string:");
+		String str = br.readLine();
+		
+		System.out.print("The entered string is :"+str);
+		}
+		catch(IOException e){
+			System.out.println("AN error occurred");
+		}
+	}	
+}`,
+      output: `E:\Java\practical file\input_output_source>java inio.Q1
+enter the string:Good morning
+The entered string is :Good morning`
+    },
+    {
+      question: "2. Enter the string from user using BufferedStreamReader",
+      source_code: `package inio;
+import java.io.*;
+class Q2{
+	public static void main(String agr[]){
+		try{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.print("enter the string:");
+		String str = br.readLine();
+		
+		System.out.print("The entered string is :"+str);
+		}
+		catch(IOException e){
+			System.out.println("AN error occurred");
+		}
+	}	
+}`,
+      output: `E:\Java\practical file\input_output_source>javac -d . Q2.java
+
+E:\Java\practical file\input_output_source>java inio.Q2
+enter the string:Tanish is in BCA SEM 5
+The entered string is :Tanish is in BCA SEM 5`
+    },
+    {
+      question: "3. Enter the integer from user using Scanner class",
+      source_code: `package inio;
+import java.util.Scanner;
+class Q3{
+	public static void main(String agr[]){
+		try
+		(Scanner scanner = new Scanner(System.in)){
+			System.out.print("enter your integer");
+		int num = scanner.nextInt();
+		System.out.println(num);
+		}
+		catch(java.util.InputMismatchException e){
+			System.out.println("Not valid integer");
+		}
+	}	
+}`,
+      output: `E:\Java\practical file\input_output_source>javac -d . Q3.java
+
+E:\Java\practical file\input_output_source>java inio.Q3
+enter your integer67
+6`
+    },
+    {
+      question: "4. Enter the float from user using Scanner class",
+      source_code: `package inio;
+import java.util.Scanner;
+class Q4{
+	public static void main(String agr[]){
+		try
+		(Scanner scanner = new Scanner(System.in)){
+			System.out.print("enter your floating value:");
+		float num = scanner.nextFloat();
+		System.out.println(num);
+		}
+		catch(java.util.InputMismatchException e){
+			System.out.println("Not valid integer");
+		}
+	}	
+}`,
+      output: `E:\Java\practical file\input_output_source>javac -d . Q4.java
+
+E:\Java\practical file\input_output_source>java inio.Q4
+enter your floating value:34.89
+34.89
+`
+    },
+    {
+      question: "5. Enter the double from user using Scanner class",
+      source_code: `package inio;
+import java.util.Scanner;
+class Q4{
+	public static void main(String agr[]){
+		try
+		(Scanner scanner = new Scanner(System.in)){
+			System.out.print("enter your floating value:");
+		float num = scanner.nextFloat();
+		System.out.println(num);
+		}
+		catch(java.util.InputMismatchException e){
+			System.out.println("Not valid integer");
+		}
+	}	
+}`,
+      output: ``
+    },
+    {
+      question: "6. Enter the boolean from user using Scanner class",
+      source_code: `package inio;
+import java.util.Scanner;
+class Q6{
+	public static void main(String agr[]){
+		try
+		(Scanner scanner = new Scanner(System.in)){
+			System.out.print("enter your double value:");
+		boolean  bool = scanner.nextBoolean();
+		System.out.println(bool);
+		}
+		catch(java.util.InputMismatchException e){
+			System.out.println("Not valid double");
+		}
+	}	
+}`,
+      output: `E:\Java\practical file\input_output_source>javac -d . Q6.java
+
+E:\Java\practical file\input_output_source>java inio.Q6
+enter your double value:true
+true
+`
+    },
+    {
+      question: "7. Enter the short integer from user using Scanner class",
+      source_code: `package inio;
+import java.util.Scanner;
+class Q7{
+	public static void main(String agr[]){
+		try
+		(Scanner scanner = new Scanner(System.in)){
+			System.out.print("enter your short value:");
+		short num = scanner.nextShort();
+		System.out.println(num);
+		}
+		catch(java.util.InputMismatchException e){
+			System.out.println("Not valid short");
+		}
+	}	
+}`,
+      output: `E:\Java\practical file\input_output_source>javac -d . Q7.java
+
+E:\Java\practical file\input_output_source>java inio.Q7
+enter your short value:4
+4
+`
+    },
+    {
+      question: "8. Enter the long integer from user using Scanner class",
+      source_code: `package inio;
+import java.util.Scanner;
+class Q8{
+	public static void main(String agr[]){
+		try
+		(Scanner scanner = new Scanner(System.in)){
+			System.out.print("enter your Long value:");
+		Long num = scanner.nextLong();
+		System.out.println(num);
+		}
+		catch(java.util.InputMismatchException e){
+			System.out.println("Not valid Long");
+		}
+	}	
+}`,
+      output: `E:\Java\practical file\input_output_source>javac -d . Q8.java
+
+E:\Java\practical file\input_output_source>java inio.Q8
+enter your Long value:36463453434
+36463453434
+`
+    },
+    {
+      question: "9. Get all characters from the file and display on the screen",
+      source_code: `package inio;
+import java.util.Scanner;
+import java.io.*;
+class Q9{
+	public static void main(String agr[]){
+		String path = "document.txt";
+		try
+		(BufferedReader reader = new BufferedReader(new FileReader(path))){
+		int ch;
+		while((ch = reader.read()) != -1){
+			System.out.println((char)ch);
+		}
+		}
+		catch(java.util.InputMismatchException e){
+			System.out.println("error occured");
+		}
+	}	
+}`,
+      output: ``
+    },
+    {
+      question: "10. Get all characters from the file, count number of lines, words, characters and display on the screen",
+      source_code: ``,
+      output: ``
+    }
+
+    ]
+};
+
+
+// ======================================
+// SET PAGE TITLE
+// ======================================
+
+document.getElementById("SINGLED").textContent = topicData.title;
+
+
+// ======================================
+// DISPLAY QUESTIONS
+// ======================================
+
+const container = document.getElementById("quesList");
+
+topicData.queries.forEach((q, index) => {
+
+    const div = document.createElement("div");
+    div.className = "query-box";
+
+    // Question Title
+    const title = document.createElement("div");
+    title.className = "query-title";
+    title.textContent = `${q.question}`;
+
+    // Show Answer Button
+    const button = document.createElement("button");
+    button.textContent = "Show Answer";
+
+    // Answer Section
+    const answer = document.createElement("div");
+    answer.className = "answer";
+
+    // Answer Container
+    const answerContainer = document.createElement("div");
+    answerContainer.className = "answer-container";
+
+    // Source Code
+    const codeBox = document.createElement("div");
+    codeBox.className = "query-code";
+
+    const codeHeading = document.createElement("h3");
+    codeHeading.textContent = "Java Source Code";
+
+    const code = document.createElement("pre");
+
+    code.textContent = q.source_code.trim()
+        ? q.source_code
+        : "Java source code not added yet.";
+
+    if (!q.source_code.trim()) {
+        code.className = "empty";
+    }
+
+    codeBox.appendChild(codeHeading);
+    codeBox.appendChild(code);
+
+    // Output
+    const outputBox = document.createElement("div");
+    outputBox.className = "output";
+
+    const outputHeading = document.createElement("h3");
+    outputHeading.textContent = "Output";
+
+    const output = document.createElement("pre");
+
+    output.textContent = q.output.trim()
+        ? q.output
+        : "Output not added yet.";
+
+    if (!q.output.trim()) {
+        output.className = "empty";
+    }
+
+    outputBox.appendChild(outputHeading);
+    outputBox.appendChild(output);
+
+    // Add both boxes
+    answerContainer.appendChild(codeBox);
+    answerContainer.appendChild(outputBox);
+
+    answer.appendChild(answerContainer);
+
+
+    // Button Functionality
+    button.addEventListener("click", function () {
+
+        if (answer.style.display === "block") {
+
+            answer.style.display = "none";
+            button.textContent = "Show Answer";
+
+        } else {
+
+            answer.style.display = "block";
+            button.textContent = "Hide Answer";
+
+        }
+
+    });
+
+    // Add everything to page
+    div.appendChild(title);
+    div.appendChild(button);
+    div.appendChild(answer);
+
+    container.appendChild(div);
+
+});
+
+</script>
+
+</body>
+</html>

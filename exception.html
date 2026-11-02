@@ -1,0 +1,497 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java - Exception </title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #F3F4FA;
+    color: #28345C;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 18px;
+    border-radius: 15px;
+    font-size: 26px;
+    font-weight: bold;
+    background: #28345C;
+    color: #FFFFFF;
+    margin-bottom: 25px;
+}
+
+/* Question Box */
+.query-box {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(40, 52, 92, 0.07);
+}
+
+.query-title {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Buttons */
+button {
+    padding: 9px 16px;
+    border: none;
+    border-radius: 20px;
+    background: #28345C;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #6556B8;
+}
+
+/* Answer Section */
+.answer {
+    display: none;
+    margin-top: 18px;
+    border-top: 2px solid #D6D9EA;
+    padding-top: 15px;
+}
+
+.answer-container {
+    display: flex;
+    gap: 15px;
+    align-items: stretch;
+}
+
+/* Code and Output */
+.query-code,
+.output {
+    flex: 1;
+    min-width: 0;
+    background: #F3F4FA;
+    padding: 15px;
+    border: 1px solid #D6D9EA;
+    border-radius: 8px;
+    overflow: auto;
+}
+
+.query-code h3,
+.output h3 {
+    margin-top: 0;
+    font-size: 17px;
+    color: #28345C;
+}
+
+/* Java Code */
+pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #28345C;
+    margin: 0;
+}
+
+/* Empty Content */
+.empty {
+    color: #777777;
+    font-style: italic;
+    font-family: Arial, sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    body {
+        padding: 12px;
+    }
+
+    .header {
+        font-size: 21px;
+    }
+
+    .answer-container {
+        flex-direction: column;
+    }
+
+    .query-code,
+    .output {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Topic Header -->
+<div class="header" id="SINGLED">
+   Exception
+</div>
+
+<!-- Questions -->
+<div id="quesList"></div>
+
+<script>
+
+// ======================================
+// JAVA PROGRAMMING QUESTIONS
+// EDIT SOURCE CODE AND OUTPUT HERE
+// ======================================
+
+const topicData = {
+
+    title: "Exception",
+
+    queries: [
+      {
+      question: "1. Write a Java program that throws an exception and catch it using a try-catch block.",
+      source_code: `package exception;
+import java.lang.ArithmeticException;
+class Q1{
+	public static void main(String arg[]){
+		try{
+			System.out.println("Dividing by zero");
+			
+			int result = 10/0;
+			
+			System.out.println("Result :" + result);
+			System.out.println("There is no problem in the program");
+		}
+		catch (ArithmeticException e){
+			System.out.println("Error caught: Cannot divide by Zero");
+			System.out.println("Exception message " + e.getMessage());
+		}
+		System.out.println("There is no problem in the program");
+	
+	}
+}`,
+      output: `E:\Java\practical file\Exception_source>javac -d . Q1.java
+
+E:\Java\practical file\Exception_source>java exception.Q1
+Dividing by zero
+Error caught: Cannot divide by Zero
+Exception message / by zero
+There is no problem in the program
+`
+    },
+    {
+      question: "2. Write a Java program to create a method that takes an integer as a parameter and throws an exception if the number is odd.",
+      source_code: `package exception;
+import java.lang.ArithmeticException;
+class Q2{
+	public static void main(String arg[]){
+		odd(6);	
+	}
+	public static void odd(int num){
+		try{
+			if(num%2 != 0){
+				throw new Exception();
+			}
+			else{
+				System.out.println("The value is even");
+			}
+		}
+		catch(Exception e){
+			System.out.println("The value is odd");
+		}
+	}
+}`,
+      output: `E:\Java\practical file\Exception_source>javac -d . Q2.java
+
+E:\Java\practical file\Exception_source>java exception.Q2
+The value is even
+`
+    },
+    {
+      question: "3. Write a Java program to create a method that reads a file and throws an exception if the file is not found",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "4. Write a Java program that reads a list of numbers from a file and throws an exception if any of the numbers are positive",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "5. Write a Java program that reads a file and throws an exception if the file is empty.",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "6. Write a Java program that reads a list of integers from the user and throws an exception if any numbers are duplicates",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "7. Write a Java program to create a method that takes a string as input and throws an exception if the string does not contain vowels.",
+      source_code: `package exception;
+
+class Q7{
+	public static void main(){
+		try{
+			vowel("Good evening");
+	
+		}
+        	catch (Exception e) {
+           		 System.out.println("error occured");
+        	}
+	}
+	public static void vowel(String str) throws Exception{
+		if(!str.matches(".*[aeiou].*")){
+			throw new Exception("String does not have vowel");
+		}
+		System.out.println("string containn vowels");
+	}
+}  `,
+      output: `E:\Java\practical file\Exception_source>javac -d . Q7.java
+
+E:\Java\practical file\Exception_source>java exception.Q7
+string containn vowels
+`
+    },
+    {
+      question: "8. Write a Java program to connect the Java API to Database, if connection not successful then throw an exception",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "9. Write a Java program to manage the driver with path, username and password, if not successful then throw an exception",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "10. Write a Java program to throw the SQL Query, insert, delete, update, if not successful then throw an exception",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "11. Write a Java program to show an example of throws Keyword.",
+      source_code: `package exception;
+
+class Q11{
+	public static void main(){
+		try{
+			System.out.println("Result:"+divide(10,2));
+			System.out.println("result:"+ divide(10,0));	
+		}
+        	catch (ArithmeticException e) {
+           		 System.out.println("Cannot divide by zero.");
+        	}
+	}
+	public static int divide(int a , int b) throws ArithmeticException{
+		return a/b;
+	}
+}  `,
+      output: `E:\Java\practical file\Exception_source>javac -d . Q11.java
+
+E:\Java\practical file\Exception_source>java exception.Q11
+Result:5
+Cannot divide by zero.
+`
+    },
+    {
+      question: "12. Write a Java program to show an example of multiple catch",
+      source_code: `package exception;
+
+class Q12{
+	public static void main(){
+		try{
+			int num[] = {5,10,15};
+			System.out.println("invalid index accessing:"+num[4]);	
+			String text = null;
+			System.out.println("String length"+text.length());
+		}
+        	catch (ArithmeticException e) {
+           		 System.out.println("Maths error.");
+        	}
+        	catch (ArrayIndexOutOfBoundsException e) {
+           		 System.out.println("Index out of bound.");
+        	}
+        	catch (Exception e) {
+           		 System.out.println("An error occured.");
+        	}
+	}
+}  `,
+      output: `E:\Java\practical file\Exception_source>javac -d . Q12.java
+
+E:\Java\practical file\Exception_source>java exception.Q12
+Index out of bound.
+`
+    },
+    {
+      question: "13. Write a Java program to show an example of nested try block.",
+      source_code: `package exception;
+
+class Q13{
+	public static void main(){
+		try{
+			System.out.println("Try block");
+			int numbers[] = {1,2,3,4,5};
+		try {
+                	System.out.println("Entering inner try block 1.");
+                	int result = numbers[1] / 0; // Throws ArithmeticException
+            	} 
+            	catch (ArithmeticException e) {
+                	System.out.println("Inner Catch 1: Cannot divide by zero! (" + e + ")");
+    	        }
+
+            // Another inner try block
+            	try {
+                	System.out.println("Entering inner try block 2.");
+                	System.out.println("Accessing element: " + numbers[5]);
+		}	
+	        catch (NullPointerException e) {
+    		            System.out.println("Inner Catch 2: Handled NullPointerException.");
+                }
+ 
+            	System.out.println("Exiting the outer try block normally.");
+        	} 
+        	catch (ArrayIndexOutOfBoundsException e) {
+            		System.out.println("Outer Catch: Array index out of bounds handled here! (" + e + ")");
+        	} 
+        	catch (Exception e) {
+           		 System.out.println("Outer Catch: Generic exception handler.");
+        	}
+	}
+}  cmd`,
+      output: `E:\Java\practical file\Exception_source>javac -d . Q13.java
+
+E:\Java\practical file\Exception_source>java exception.Q13
+Try block
+Entering inner try block 1.
+Inner Catch 1: Cannot divide by zero! (java.lang.ArithmeticException: / by zero)
+Entering inner try block 2.
+Outer Catch: Array index out of bounds handled here! (java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5)
+`
+    }
+
+    ]
+};
+
+
+// ======================================
+// SET PAGE TITLE
+// ======================================
+
+document.getElementById("SINGLED").textContent = topicData.title;
+
+
+// ======================================
+// DISPLAY QUESTIONS
+// ======================================
+
+const container = document.getElementById("quesList");
+
+topicData.queries.forEach((q, index) => {
+
+    const div = document.createElement("div");
+    div.className = "query-box";
+
+    // Question Title
+    const title = document.createElement("div");
+    title.className = "query-title";
+    title.textContent = `${q.question}`;
+
+    // Show Answer Button
+    const button = document.createElement("button");
+    button.textContent = "Show Answer";
+
+    // Answer Section
+    const answer = document.createElement("div");
+    answer.className = "answer";
+
+    // Answer Container
+    const answerContainer = document.createElement("div");
+    answerContainer.className = "answer-container";
+
+    // Source Code
+    const codeBox = document.createElement("div");
+    codeBox.className = "query-code";
+
+    const codeHeading = document.createElement("h3");
+    codeHeading.textContent = "Java Source Code";
+
+    const code = document.createElement("pre");
+
+    code.textContent = q.source_code.trim()
+        ? q.source_code
+        : "Java source code not added yet.";
+
+    if (!q.source_code.trim()) {
+        code.className = "empty";
+    }
+
+    codeBox.appendChild(codeHeading);
+    codeBox.appendChild(code);
+
+    // Output
+    const outputBox = document.createElement("div");
+    outputBox.className = "output";
+
+    const outputHeading = document.createElement("h3");
+    outputHeading.textContent = "Output";
+
+    const output = document.createElement("pre");
+
+    output.textContent = q.output.trim()
+        ? q.output
+        : "Output not added yet.";
+
+    if (!q.output.trim()) {
+        output.className = "empty";
+    }
+
+    outputBox.appendChild(outputHeading);
+    outputBox.appendChild(output);
+
+    // Add both boxes
+    answerContainer.appendChild(codeBox);
+    answerContainer.appendChild(outputBox);
+
+    answer.appendChild(answerContainer);
+
+
+    // Button Functionality
+    button.addEventListener("click", function () {
+
+        if (answer.style.display === "block") {
+
+            answer.style.display = "none";
+            button.textContent = "Show Answer";
+
+        } else {
+
+            answer.style.display = "block";
+            button.textContent = "Hide Answer";
+
+        }
+
+    });
+
+    // Add everything to page
+    div.appendChild(title);
+    div.appendChild(button);
+    div.appendChild(answer);
+
+    container.appendChild(div);
+
+});
+
+</script>
+
+</body>
+</html>
