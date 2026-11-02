@@ -1,0 +1,906 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java - </title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #F3F4FA;
+    color: #28345C;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 18px;
+    border-radius: 15px;
+    font-size: 26px;
+    font-weight: bold;
+    background: #28345C;
+    color: #FFFFFF;
+    margin-bottom: 25px;
+}
+
+/* Question Box */
+.query-box {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(40, 52, 92, 0.07);
+}
+
+.query-title {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Buttons */
+button {
+    padding: 9px 16px;
+    border: none;
+    border-radius: 20px;
+    background: #28345C;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #6556B8;
+}
+
+/* Answer Section */
+.answer {
+    display: none;
+    margin-top: 18px;
+    border-top: 2px solid #D6D9EA;
+    padding-top: 15px;
+}
+
+.answer-container {
+    display: flex;
+    gap: 15px;
+    align-items: stretch;
+}
+
+/* Code and Output */
+.query-code,
+.output {
+    flex: 1;
+    min-width: 0;
+    background: #F3F4FA;
+    padding: 15px;
+    border: 1px solid #D6D9EA;
+    border-radius: 8px;
+    overflow: auto;
+}
+
+.query-code h3,
+.output h3 {
+    margin-top: 0;
+    font-size: 17px;
+    color: #28345C;
+}
+
+/* Java Code */
+pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #28345C;
+    margin: 0;
+}
+
+/* Empty Content */
+.empty {
+    color: #777777;
+    font-style: italic;
+    font-family: Arial, sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    body {
+        padding: 12px;
+    }
+
+    .header {
+        font-size: 21px;
+    }
+
+    .answer-container {
+        flex-direction: column;
+    }
+
+    .query-code,
+    .output {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Topic Header -->
+<div class="header" id="SINGLED">
+    STRING
+</div>
+
+<!-- Questions -->
+<div id="quesList"></div>
+
+<script>
+
+// ======================================
+// JAVA PROGRAMMING QUESTIONS
+// EDIT SOURCE CODE AND OUTPUT HERE
+// ======================================
+
+const topicData = {
+
+    title: "Syllabus Questions",
+
+    queries: [
+
+        {
+      question: "1. Program to print a simple message.",
+      source_code: `package syllabus;
+
+class Q1{
+	public static void main(String arg[]){
+		System.out.println("Hello world");
+	}
+}`,
+      output: `E:\Java\practical file\syllabus_source>javac -d . Q1.java
+
+E:\Java\practical file\syllabus_source>java syllabus.Q1
+Hello world
+`
+    },
+    {
+      question: "2. Program to demonstrate data types and variables.",
+      source_code: `package syllabus;
+
+class Q2{
+	public static void main(String arg[]){
+		int value = 30;
+		
+		System.out.println("The value of variable is :"+value);
+	}
+}`,
+      output: `E:\Java\practical file\syllabus_source>javac -d . Q2.java
+
+E:\Java\practical file\syllabus_source>java syllabus.Q2
+The value of variable is :30
+`
+    },
+    {
+      question: "3. Program to demonstrate command-line arguments.",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "4. Program to demonstrate arithmetic operators (+, -, *, /, %).",
+      source_code: `package syllabus;
+
+class Q4{
+	public static void main(String arg[]){
+		int a = 2;
+		int b = 5;
+		System.out.println("The addition of variables is :"+a+b);
+		System.out.println("The subtraction of variables is :"+(a-b));
+		System.out.println("The multiplication of variables is :"+a*b);
+		System.out.println("The division of variables is :"+a/b);
+
+	}
+}`,
+      output: `E:\Java\practical file\syllabus_source>javac -d . Q4.java
+
+E:\Java\practical file\syllabus_source>java syllabus.Q4
+The addition of variables is :25
+The subtraction of variables is :-3
+The multiplication of variables is :10
+The division of variables is :0
+`
+    },
+    {
+      question: "5. Program to read input using Scanner.",
+      source_code: `package syllabus;
+import java.util.Scanner;
+class Q5{
+	public static void main(String arg[]){
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter the line:");
+		String str = scan.nextLine();
+		System.out.println("The entered line is :"+str);
+		
+	}
+}`,
+      output: `E:\Java\practical file\syllabus_source>javac -d . Q5.java
+
+E:\Java\practical file\syllabus_source>java syllabus.Q5
+Enter the line:
+i am tanish
+The entered line is :i am tanish
+`
+    },
+    {
+      question: "6. Program to check even/odd using if-else.",
+      source_code: `package syllabus;
+
+class Q6{
+	public static void main(String arg[]){
+		int a = 2;
+		if(a%2==0){
+			System.out.println("The number is even");
+		}
+		else{
+			System.out.println("The number is odd");
+		}		
+	}
+}`,
+      output: `E:\Java\practical file\syllabus_source>javac -d . Q6.java
+
+E:\Java\practical file\syllabus_source>java syllabus.Q6
+The number is even
+`
+    },
+    {
+      question: "7. Program to demonstrate relational and logical operators.",
+      source_code: `package syllabus;
+
+class Q7{
+	public static void main(String arg[]){
+		int a = 2;
+		int b = 8;
+		System.out.println("Relational operator");
+		System.out.println("a == b :"+(a==b));
+		System.out.println("a != b :"+(a != b));						System.out.println("a>b :"+(a>b));						        System.out.println("a<b :"+(a<b));							
+		System.out.println("Logical operator");
+		System.out.println("(a == b) && ( a != 0):"+((a == b) && ( a != 0)));
+		System.out.println("(a > b) || ( b != 0) :"+((a > b) || ( b != 0)));			
+	}
+}`,
+      output: `E:\Java\practical file\syllabus_source>javac -d . Q7.java
+
+E:\Java\practical file\syllabus_source>java syllabus.Q7
+Relational operator
+a == b :false
+a != b :true
+a>b :false
+a<b :true
+Logical operator
+(a == b) && ( a != 0):false
+(a > b) || ( b != 0) :true
+`
+    },
+    {
+      question: "8. Program to print numbers from 1 to 10 using a loop.",
+      source_code: `package syllabus;
+
+class Q8{
+	public static void main(String arg[]){
+		for(int i = 0;i<10;i++){
+			System.out.println("");
+		}			
+	}
+}`,
+      output: `E:\Java\practical file\syllabus_source>javac -d . Q8.java
+
+E:\Java\practical file\syllabus_source>java syllabus.Q8
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+`
+    },
+    {
+      question: "9. Program to demonstrate break and continue in loops.",
+      source_code: `package syllabus;
+
+class Q9{
+	public static void main(String arg[]){
+		for(int i = 0;i<10;i++){
+			if(i == 4){
+				System.out.println(i);
+				break;	
+			}
+			else if(i == 2){
+				System.out.println(i);
+				continue;
+			}
+			else{
+				System.out.println("Number passed");
+			}
+		}			
+	}
+}`,
+      output: `E:\Java\practical file\syllabus_source>javac -d . Q9.java
+
+E:\Java\practical file\syllabus_source>java syllabus.Q9
+Number passed
+Number passed
+2
+Number passed
+4
+`
+    },
+    {
+      question: "10. Program to create a simple class and object.",
+      source_code: `package syllabus;
+
+class Lion{
+	public void roaring(){
+		System.out.println("The lion is roaring");
+	}
+}
+
+class Q10{
+	public static void main(String arg[]){
+		Lion l = new Lion();
+		l.roaring();			
+	}
+}`,
+      output: `E:\Java\practical file\syllabus_source>javac -d . Q10.java
+
+E:\Java\practical file\syllabus_source>java syllabus.Q10
+The lion is roaring
+`
+    },
+    {
+      question: "11. Program to access class members (variables & methods).",
+      source_code: `package syllabus;
+
+class student{
+	int rollno;
+	String name;
+	public void student_data(){
+		System.out.println("Student roll number is :"+rollno);
+		System.out.println("Student name is :"+name);
+	}
+}
+
+class Q11{
+	public static void main(String arg[]){
+		student s1 = new student();
+		s1.rollno = 10;
+		s1.name = "Tanish";
+		s1.student_data();			
+	}
+}`,
+      output: `E:\Java\practical file\syllabus_source>javac -d . Q11.java
+
+E:\Java\practical file\syllabus_source>java syllabus.Q11
+Student roll number is :10
+Student name is :Tanish
+`
+    },
+    {
+      question: "12. Program to demonstrate constructors.",
+      source_code: `package syllabus;
+
+class student{
+	int rollno;
+	String name;
+	public student(int rollno, String name){
+		this.rollno = rollno;
+		this.name = name;
+	}
+	public void student_data(){
+		System.out.println("Student roll number is :"+rollno);
+		System.out.println("Student name is :"+name);
+	}
+}
+
+class Q12{
+	public static void main(String arg[]){
+		student s1 = new student(2,"tanish");
+		s1.student_data();			
+	}
+}`,
+      output: `E:\Java\practical file\syllabus_source>javac -d . Q12.java
+
+E:\Java\practical file\syllabus_source>java syllabus.Q12
+Student roll number is :2
+Student name is :tanish
+`
+    },
+    {
+      question: "13. Program to demonstrate constructor overloading.",
+      source_code: `package syllabus;
+
+class student{
+	int rollno;
+	String name;
+	int standard;
+	public student(int rollno, String name){
+		this.rollno = rollno;
+		this.name = name;
+		standard = 10;
+	}
+	public student(int rollno,String name,int standard){
+		this.rollno = rollno;
+		this.name = name;
+		this.standard = standard;
+	}
+	public void student_data(){
+		System.out.println("Student roll number is :"+rollno);
+		System.out.println("Student name is :"+name);
+		System.out.println("Student standard is :"+standard);
+		
+
+	}
+}
+
+class Q13{
+	public static void main(String arg[]){
+		student s1 = new student(2,"tanish");
+		student s2 = new student(3,"rohit",9);
+		s1.student_data();
+		s2.student_data();			
+	}
+}`,
+      output: `E:\Java\practical file\syllabus_source>javac -d . Q13.java
+
+E:\Java\practical file\syllabus_source>java syllabus.Q13
+Student roll number is :2
+Student name is :tanish
+Student standard is :10
+Student roll number is :3
+Student name is :rohit
+Student standard is :9
+`
+    },
+    {
+      question: "14. Program to demonstrate method overloading.",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "15. Program to demonstrate static variables and static methods.",
+      source_code: `package syllabus;
+
+class student{
+	int rollno;
+	String name;
+	static int standard = 10;
+	public student(int rollno, String name){
+		this.rollno = rollno;
+		this.name = name;
+		
+	}
+	public void student_data(){
+		System.out.println("Student roll number is :"+rollno);
+		System.out.println("Student name is :"+name);
+		System.out.println("Student standard is :"+standard);
+		
+
+	}
+}
+
+class Q15{
+	public static void main(String arg[]){
+		student s1 = new student(2,"tanish");
+		student s2 = new student(3,"rohit");
+		s1.student_data();
+		s2.student_data();	
+	}
+}`,
+      output: `E:\Java\practical file\syllabus_source>javac -d . Q15.java
+
+E:\Java\practical file\syllabus_source>java syllabus.Q15
+Student roll number is :2
+Student name is :tanish
+Student standard is :10
+Student roll number is :3
+Student name is :rohit
+Student standard is :10
+`
+    },
+    {
+      question: "16. Program to demonstrate final variable, final method, final class.",
+      source_code: `package syllabus;
+
+class student{
+	int rollno;
+	String name;
+	static int standard = 10;
+	public student(int rollno, String name){
+		this.rollno = rollno;
+		this.name = name;
+		
+	}
+	public void student_data(){
+		System.out.println("Student roll number is :"+rollno);
+		System.out.println("Student name is :"+name);
+		System.out.println("Student standard is :"+standard);
+		
+
+	}
+}
+
+final class school{
+	void show(){
+		System.out.println("School name: GMSSS");
+	}
+}
+
+class Q16{
+	public static void main(String arg[]){
+		student s1 = new student(2,"tanish");
+		student s2 = new student(3,"rohit");
+		school sc = new school();
+		s1.student_data();
+		s2.student_data();	
+		sc.show();		
+	}
+}`,
+      output: `E:\Java\practical file\syllabus_source>javac -d . Q16.java
+
+E:\Java\practical file\syllabus_source>java syllabus.Q16
+Student roll number is :2
+Student name is :tanish
+Student standard is :10
+Student roll number is :3
+Student name is :rohit
+Student standard is :10
+School name: GMSSS
+`
+    },
+    {
+      question: "17. Program to demonstrate abstract class and abstract method.",
+      source_code: `abstract class Shape {
+
+    abstract void area();
+    void display() {
+        System.out.println("Calculating Area:");
+    }
+}
+
+class Rectangle extends Shape {
+    int length = 10;
+    int breadth = 5;
+
+    void area() {
+        System.out.println("Area of Rectangle: " + (length * breadth));
+    }
+}
+
+class Circle extends Shape {
+    double radius = 7;
+    void area() {
+        System.out.println("Area of Circle: " + (3.14 * radius * radius));
+    }
+}
+
+public class Q17 {
+    public static void main(String[] args) {
+        Rectangle r = new Rectangle();
+        r.display();
+        r.area();
+        Circle c = new Circle();
+        c.display();
+        c.area();
+    }
+}`,
+      output: ``
+    },
+    {
+      question: "18. Program to demonstrate the finalize() method.",
+      source_code: `class Student {
+    protected void finalize() {
+        System.out.println("Finalize method called.");
+    }
+    void display() {
+        System.out.println("Student object created.");
+    }
+}
+
+public class Q18 {
+    public static void main(String[] args) {
+        Student s = new Student();
+        s.display();
+        s = null;
+        System.gc();
+        System.out.println("End of main method.");
+    }
+}`,
+      output: ``
+    },
+    {
+      question: "19. Program to create and display an array.",
+      source_code: `package syllabus;
+
+class Q19{
+	public static void main(String arg[]){
+		int arr[];
+		arr = new int[5];
+		for(int i = 0;i<5;i++){
+			arr[i] = i;
+		}
+		for(int i = 0;i<5;i++){
+			System.out.println(arr[i]);
+		}
+	}
+}`,
+      output: `E:\Java\practical file\syllabus_source>javac -d . Q19.java
+
+E:\Java\practical file\syllabus_source>java syllabus.Q19
+0
+1
+2
+3
+4
+`
+    },
+    {
+      question: "20. Program to find the sum of array elements.",
+      source_code: `package syllabus;
+
+class Q20{
+	public static void main(String arg[]){
+		int arr[];
+		arr = new int[5];
+		for(int i = 0;i<5;i++){
+			arr[i] = i;
+		}
+		int sum=0;
+		for(int i = 0;i<5;i++){
+			sum += arr[i];
+		}
+		System.out.println("The sum is :"+sum);
+	}
+}`,
+      output: `E:\Java\practical file\syllabus_source>javac -d . Q20.java
+
+E:\Java\practical file\syllabus_source>java syllabus.Q20
+The sum is :10
+`
+    },
+    {
+      question: "21. Program to find the largest element in an array.",
+      source_code: `package syllabus;
+
+class Q21{
+	public static void main(String arg[]){
+		int arr[]={6,7,8,2,3,4};
+		int lar_ind = 0;
+		for(int i = 1;i<arr.length;i++){
+			if(arr[i]>arr[lar_ind]){
+				lar_ind = i;
+			}
+		}
+		System.out.println("The largest number from the array is :"+arr[lar_ind]);
+	}
+}`,
+      output: `E:\Java\practical file\syllabus_source>javac -d . Q21.java
+
+E:\Java\practical file\syllabus_source>java syllabus.Q21
+The largest number from the array is :8
+`
+    },
+    {
+      question: "22. Program to create and print a 2-dimensional array.",
+      source_code: `package syllabus;
+
+class Q22{
+	public static void main(String arg[]){
+		int arr[][]={{6,7},{8,2},{3,4}};
+		for(int i = 0;i<arr.length;i++){
+			for(int j = 0;j<arr[0].length;j++){
+				System.out.println(arr[i][j]);
+			}
+		}
+	}
+}`,
+      output: `E:\Java\practical file\syllabus_source>javac -d . Q22.java
+
+E:\Java\practical file\syllabus_source>java syllabus.Q22
+6
+7
+8
+2
+3
+4
+`
+    },
+    {
+      question: "23. Program to demonstrate simple String operations (length, concat, compare).",
+      source_code: `package syllabus;
+import java.lang.String;
+class Q23{
+	public static void main(String arg[]){
+		String str = "Good morning everyone , I am tanish";
+		System.out.println("The length of string is :"+str.length());
+		System.out.println("The length of string is :"+str.concat("I am from bca"));
+		System.out.println("The length of string is :"+str.compareTo("Hello"));		
+	}
+}`,
+      output: `E:\Java\practical file\syllabus_source>javac -d . Q23.java
+
+E:\Java\practical file\syllabus_source>java syllabus.Q23
+The length of string is :35
+The length of string is :Good morning everyone , I am tanishI am from bca
+The length of string is :-1
+`
+    },
+    {
+      question: "24. Program to reverse a string.",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "25. Program to show StringBuffer operations (append, insert, delete).",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "26. Program to demonstrate single inheritance.",
+      source_code: `package syllabus;
+import java.lang.String;
+
+class Animal{
+	public static void sound(){
+		System.out.println("The sound is of Animal");
+	}
+}
+class Q26 extends Animal{
+	public static void main(String arg[]){
+			sound();
+	}
+}`,
+      output: `E:\Java\practical file\syllabus_source>javac -d . Q26.java
+
+E:\Java\practical file\syllabus_source>java syllabus.Q26
+The sound is of Animal
+`
+    },
+    {
+      question: "27. Program to demonstrate multilevel inheritance.",
+      source_code: ``,
+      output: ``
+    },
+    {
+      question: "28. Program to demonstrate hierarchical inheritance.",
+      source_code: ``,
+      output: ``
+    }
+
+    ]
+};
+
+
+// ======================================
+// SET PAGE TITLE
+// ======================================
+
+document.getElementById("SINGLED").textContent = topicData.title;
+
+
+// ======================================
+// DISPLAY QUESTIONS
+// ======================================
+
+const container = document.getElementById("quesList");
+
+topicData.queries.forEach((q, index) => {
+
+    const div = document.createElement("div");
+    div.className = "query-box";
+
+    // Question Title
+    const title = document.createElement("div");
+    title.className = "query-title";
+    title.textContent = `${q.question}`;
+
+    // Show Answer Button
+    const button = document.createElement("button");
+    button.textContent = "Show Answer";
+
+    // Answer Section
+    const answer = document.createElement("div");
+    answer.className = "answer";
+
+    // Answer Container
+    const answerContainer = document.createElement("div");
+    answerContainer.className = "answer-container";
+
+    // Source Code
+    const codeBox = document.createElement("div");
+    codeBox.className = "query-code";
+
+    const codeHeading = document.createElement("h3");
+    codeHeading.textContent = "Java Source Code";
+
+    const code = document.createElement("pre");
+
+    code.textContent = q.source_code.trim()
+        ? q.source_code
+        : "Java source code not added yet.";
+
+    if (!q.source_code.trim()) {
+        code.className = "empty";
+    }
+
+    codeBox.appendChild(codeHeading);
+    codeBox.appendChild(code);
+
+    // Output
+    const outputBox = document.createElement("div");
+    outputBox.className = "output";
+
+    const outputHeading = document.createElement("h3");
+    outputHeading.textContent = "Output";
+
+    const output = document.createElement("pre");
+
+    output.textContent = q.output.trim()
+        ? q.output
+        : "Output not added yet.";
+
+    if (!q.output.trim()) {
+        output.className = "empty";
+    }
+
+    outputBox.appendChild(outputHeading);
+    outputBox.appendChild(output);
+
+    // Add both boxes
+    answerContainer.appendChild(codeBox);
+    answerContainer.appendChild(outputBox);
+
+    answer.appendChild(answerContainer);
+
+
+    // Button Functionality
+    button.addEventListener("click", function () {
+
+        if (answer.style.display === "block") {
+
+            answer.style.display = "none";
+            button.textContent = "Show Answer";
+
+        } else {
+
+            answer.style.display = "block";
+            button.textContent = "Hide Answer";
+
+        }
+
+    });
+
+    // Add everything to page
+    div.appendChild(title);
+    div.appendChild(button);
+    div.appendChild(answer);
+
+    container.appendChild(div);
+
+});
+
+</script>
+
+</body>
+</html>
