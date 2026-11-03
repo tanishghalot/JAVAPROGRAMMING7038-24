@@ -311,10 +311,19 @@ E:\Java\practical file\multiarray_source>java multiArray.Q4
     },
     {
       question: "5. Program to determine whether two matrices are equal",
-      source_code: `E:\Java\practical file\multiarray_source>javac -d . Q5.java
+      source_code: `package multiArray;
 
-E:\Java\practical file\multiarray_source>java multiArray.Q5
-The two matrix are same
+class Q5{
+	public static void main(String args[]) {
+	
+		int arr1[][] = {{1,2,3},{3,4,5},{6,2,4}};
+		int arr2[][] = {{1,2,3},{3,4,5},{6,2,4}};
+		int num;
+		if((arr1.length == arr2.length) && (arr1[0].length == arr2[0].length)){
+			System.out.println("The two matrix are same");
+		}
+		}
+}
 `,
       output: `E:\Java\practical file\multiarray_source>javac -d . Q5.java
 
