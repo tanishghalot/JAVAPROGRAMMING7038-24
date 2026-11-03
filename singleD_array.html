@@ -173,106 +173,481 @@ const topicData = {
 
         {
             question: "Program to copy all elements of one array into another array",
-            source_code: "",
-            output: "",
-            reference_url: ""
+            source_code: `package SingleD_array;
+class display_array{
+	public static void main(String args[]){
+	int arr1[],arr2[];
+	arr1 = new int[5];
+	arr2 = new int[5];
+	int a = 1;
+	for(int i = 0;i<5;i++){
+		arr1[i] = a;
+		a++;
+	}
+	for(int i=0;i<5;i++){
+		arr2[i] = arr1[i];
+	}
+	for(int i=0;i<5;i++){
+		System.out.print("array 1:");
+		System.out.print(arr1[i]+"\n");
+		System.out.print("array 2:");
+		System.out.print(arr2[i]+"\n");
+	}			
+}
+	
+}`,
+            output: `E:\Java\practical file\SingleD_array_source>javac -d . Q1.java
+
+E:\Java\practical file\SingleD_array_source>java SingleD_array.display_array
+array 1:1
+array 2:1
+array 1:2
+array 2:2
+array 1:3
+array 2:3
+array 1:4
+array 2:4
+array 1:5
+array 2:5
+`,
+           	
         },
 
         {
             question: "Program to find the frequency of each element in the array",
-            source_code: "",
-            output: "",
-            reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/370"
+            source_code: `package SingleD_array;
+class ele_freq{
+	public static void main(String args[]){
+		int arr[];
+		arr = new int[5];
+		int val = 1;
+		arr[0] = 1;
+		arr[1] = 1;
+		arr[2] = 3;
+		arr[3] = 2;
+		arr[4] = 2;
+		for(int i = 0;i<5;i++){
+			if(arr[i] == -1){
+				continue;
+			}
+			int count = 1;
+			for(int j = i+1 ;j<5;j++){
+				if(arr[j] == arr[i]){
+					count++;
+					arr[j] = -1;
+				}
+			}
+		System.out.print("The frequency of "+ arr[i] +"is"+count+"\n");
+		}
+}
+}`,
+            output: `E:\Java\practical file\SingleD_array_source>javac -d . Q2.java
+
+E:\Java\practical file\SingleD_array_source>java SingleD_array.ele_freq
+The frequency of 1is2
+The frequency of 3is1
+The frequency of 2is2
+`,
+            
         },
 
         {
             question: "Program to left rotate the elements of an array",
-            source_code: "",
-            output: "",
+            source_code: `package SingleD_array;
+class left_turn{
+	public static void main(String args[]){
+		int arr[];
+		arr = new int[5];
+		int val = 1;
+		arr[0] = 1;
+		arr[1] = 1;
+		arr[2] = 3;
+		arr[3] = 2;
+		arr[4] = 2;
+		int ele = arr[0];
+		for(int i = 0;i<4;i++){
+			arr[i] = arr[i+1];
+		}
+		arr[4] = ele;
+		for(int i = 0;i<5;i++){
+			System.out.print(arr[i]+"\n");
+}
+}
+}`,
+            output: `E:\Java\practical file\SingleD_array_source>javac -d . Q3.java
+
+E:\Java\practical file\SingleD_array_source>java SingleD_array.left_turn
+1
+3
+2
+2
+1
+`,
             reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/371"
         },
 
         {
             question: "Program to print the duplicate elements of an array",
-            source_code: "",
-            output: "",
+            source_code: ``,
+            output: ``,
             reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/372"
         },
 
         {
             question: "Program to print the elements of an array",
-            source_code: "",
-            output: "",
+            source_code: `package SingleD_array;
+class display_elem{
+	public static void main(String args[]){
+		int arr[];
+		arr = new int[5];
+		int val = 1;
+		arr[0] = 1;
+		arr[1] = 1;
+		arr[2] = 3;
+		arr[3] = 2;
+		arr[4] = 2;
+		int ele = arr[0];
+		for(int i = 0;i<5;i++){
+			System.out.print(arr[i]+"\n");
+		}
+	}
+}`,
+            output: `E:\Java\practical file\SingleD_array_source>javac -d . Q5.java
+
+E:\Java\practical file\SingleD_array_source>java SingleD_array.display_elem
+1
+1
+3
+2
+2
+`,
             reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/373"
         },
 
         {
             question: "Program to print the elements of an array in reverse order",
-            source_code: "",
-            output: "",
+            source_code: `package SingleD_array;
+class display_reverse{
+	public static void main(String args[]){
+		int arr[];
+		arr = new int[5];
+		int val = 1;
+		arr[0] = 1;
+		arr[1] = 1;
+		arr[2] = 3;
+		arr[3] = 2;
+		arr[4] = 2;
+		for(int i = 4;i>=0;i--){
+			System.out.print(arr[i]+"\n");
+}
+}
+}`,
+            output: `E:\Java\practical file\SingleD_array_source>javac -d . Q6.java
+
+E:\Java\practical file\SingleD_array_source>java SingleD_array.display_reverse
+2
+2
+3
+1
+1
+`,
             reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/374"
         },
 
         {
             question: "Program to print the elements of an array present on even position",
-            source_code: "",
-            output: "",
+            source_code: `package SingleD_array;
+class display_evenpos{
+	public static void main(String args[]){
+		int arr[];
+		arr = new int[5];
+		int val = 1;
+		arr[0] = 1;
+		arr[1] = 1;
+		arr[2] = 3;
+		arr[3] = 2;
+		arr[4] = 2;
+		for(int i = 0;i<5;i++){
+			if(i %2 ==0){
+				System.out.print(arr[i]+"\n");
+			}
+			else{
+				continue;
+			}
+		}
+
+	}
+}`,
+            output: `E:\Java\practical file\SingleD_array_source>javac -d . Q7.java
+
+E:\Java\practical file\SingleD_array_source>java SingleD_array.display_evenpos
+1
+3
+2
+`,
             reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/375"
         },
 
         {
             question: "Program to print the elements of an array present on odd position",
-            source_code: "",
-            output: "",
+            source_code: `package SingleD_array;
+class display_oddpos{
+	public static void main(String args[]){
+		int arr[];
+		arr = new int[5];
+		int val = 1;
+		arr[0] = 1;
+		arr[1] = 1;
+		arr[2] = 3;
+		arr[3] = 2;
+		arr[4] = 2;
+		for(int i = 0;i<5;i++){
+			if(i %2 !=0){
+				System.out.print(arr[i]+"\n");
+			}
+			else{
+				continue;
+			}
+		}
+
+	}
+}`,
+            output: `E:\Java\practical file\SingleD_array_source>javac -d . Q8.java
+
+E:\Java\practical file\SingleD_array_source>java SingleD_array.display_oddpos
+1
+2
+`,
             reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/376"
         },
 
         {
             question: "Program to print the largest element in an array",
-            source_code: "",
-            output: "",
+            source_code: `package SingleD_array;
+class display_largest{
+	public static void main(String args[]){
+		int arr[];
+		arr = new int[5];
+		int val = 1;
+		arr[0] = 1;
+		arr[1] = 1;
+		arr[2] = 3;
+		arr[3] = 2;
+		arr[4] = 2;
+		int largest = arr[0];
+		for(int i = 1;i<5;i++){
+			if(arr[i]>largest){
+				largest = arr[i];
+			}
+		}
+		System.out.print("the largest number from the array is " + largest);
+
+	}
+}`,
+            output: `E:\Java\practical file\SingleD_array_source>javac -d . Q9.java
+
+E:\Java\practical file\SingleD_array_source>java SingleD_array.display_largest
+the largest number from the array is 3`,
             reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/377"
         },
 
         {
             question: "Program to print the smallest element in an array",
-            source_code: "",
-            output: "",
+            source_code: `package SingleD_array;
+class display_small{
+	public static void main(String args[]){
+		int arr[];
+		arr = new int[5];
+		int val = 1;
+		arr[0] = 1;
+		arr[1] = 1;
+		arr[2] = 3;
+		arr[3] = 2;
+		arr[4] = 2;
+		int smallest = arr[0];
+		for(int i = 1;i<5;i++){
+			if(arr[i]<smallest){
+				smallest = arr[i];
+			}
+		}
+		System.out.print("the largest number from the array is " + smallest);
+
+	}
+}`,
+            output: `E:\Java\practical file\SingleD_array_source>javac -d . Q10.java
+
+E:\Java\practical file\SingleD_array_source>java SingleD_array.display_small
+the largest number from the array is 1`,
             reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/378"
         },
 
         {
             question: "Program to print the number of elements present in an array",
-            source_code: "",
-            output: "",
+            source_code: `package SingleD_array;
+class display_ele_count{
+	public static void main(String args[]){
+		int arr[] = {2,3,4,51,2,34};
+		int count=0;
+int i = 0;
+		while(i<arr.length){
+			
+			if(arr[i] != -1){
+				count++;
+				
+				i++;
+			}
+		}
+		System.out.print("The number of elements in array is "+count);
+	}
+}`,
+            output: `E:\Java\practical file\SingleD_array_source>javac -d . Q11.java
+
+E:\Java\practical file\SingleD_array_source>java SingleD_array.display_ele_count
+The number of elements in array is 6`,
             reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/379"
         },
 
         {
             question: "Program to print the sum of all the items of the array",
-            source_code: "",
-            output: "",
+            source_code: `package SingleD_array;
+class display_ele_sum{
+	public static void main(String args[]){
+		int arr[] = {2,3,4,51,2,34};
+		int sum=0;
+		int i = 0;
+		while(i<arr.length){
+			sum += arr[i];
+			i++;
+		}
+		
+		System.out.print("The sum of elements in array is "+sum);
+	}
+}`,
+            output: `E:\Java\practical file\SingleD_array_source>javac -d . Q12.java
+
+E:\Java\practical file\SingleD_array_source>java SingleD_array.display_ele_sum
+The sum of elements in array is 96`,
             reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/380"
         },
 
         {
             question: "Program to right rotate the elements of an array",
-            source_code: "",
-            output: "",
+            source_code: `package SingleD_array;
+class right_turn{
+	public static void main(String args[]){
+		int arr[];
+		arr = new int[5];
+		int val = 1;
+		arr[0] = 1;
+		arr[1] = 1;
+		arr[2] = 3;
+		arr[3] = 2;
+		arr[4] = 2;
+		int ele = arr[4];
+		for(int i = 4;i>=1;i--){
+			arr[i] = arr[i-1];
+		}
+		arr[0] = ele;
+		for(int i = 0;i<5;i++){
+			System.out.print(arr[i]+"\n");
+}
+}
+}`,
+            output: `E:\Java\practical file\SingleD_array_source>javac -d . Q13.java
+
+E:\Java\practical file\SingleD_array_source>java SingleD_array.right_turn
+2
+1
+1
+3
+2
+`,
             reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/381"
         },
 
         {
             question: "Program to sort the elements of an array in ascending order",
-            source_code: "",
-            output: "",
+            source_code: `
+package SingleD_array;
+
+import java.util.Arrays;
+
+class bubble_sort {
+    public static void main(String args[]) {
+        int arr[] = {2, 3, 4, 51, 2, 34};
+        int n = arr.length;
+        boolean swapped;
+
+        System.out.println("Original array: " + Arrays.toString(arr));
+
+        for (int i = 0; i < n - 1; i++) {
+            swapped = false;
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    swapped = true;
+                }
+            }
+
+            if (!swapped) {
+                break;
+            }
+        }
+        System.out.println("Sorted array: " + Arrays.toString(arr));
+    }
+}
+`,
+            output: `E:\Java\practical file\SingleD_array_source>javac -d . Q14.java
+
+E:\Java\practical file\SingleD_array_source>java SingleD_array.bubble_sort
+Original array: [2, 3, 4, 51, 2, 34]
+Sorted array: [2, 2, 3, 4, 34, 51]
+`,
             reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/382"
         },
 
         {
             question: "Program to sort the elements of an array in descending order",
-            source_code: "",
-            output: "",
+            source_code: `
+package SingleD_array;
+
+import java.util.Arrays;
+
+class bubble_sort_desc {
+    public static void main(String args[]) {
+        int arr[] = {2, 3, 4, 51, 2, 34};
+        int n = arr.length;
+        boolean swapped;
+
+        System.out.println("Original array: " + Arrays.toString(arr));
+
+        for (int i = 0; i < n - 1; i++) {
+            swapped = false;
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] < arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    swapped = true;
+                }
+            }
+
+            if (!swapped) {
+                break;
+            }
+        }
+        System.out.println("Sorted array: " + Arrays.toString(arr));
+    }
+}
+`,
+            output: `E:\Java\practical file\SingleD_array_source>javac -d . Q15.java
+
+E:\Java\practical file\SingleD_array_source>java SingleD_array.bubble_sort_desc
+Original array: [2, 3, 4, 51, 2, 34]
+Sorted array: [51, 34, 4, 3, 2, 2]
+`,
             reference_url: "https://c4knowledgeseekers.in/practice/core-java-programming/arrays/383"
         },
 
