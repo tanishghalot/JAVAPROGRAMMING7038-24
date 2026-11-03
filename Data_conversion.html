@@ -640,8 +640,9 @@ class Q26{
 			value = value/2;
 			i++;
 		}
-		Collections.reverse(Arrays.asList(arr));
-		System.out.println(Arrays.toString(arr));
+		for (int j = i - 1; j >= 0; j--) {
+            System.out.print(arr[j]);
+        }
 	
 	}
 
@@ -650,7 +651,7 @@ class Q26{
       output: `E:\Java\practical file\DataConversion_source>javac -d . Q26.java
 
 E:\Java\practical file\DataConversion_source>java DataConversion.Q26
-[1, 0, 0, 1, 1, 0, 0, 0, 0, 0]
+11001
 `
     },
     {
