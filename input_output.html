@@ -239,7 +239,7 @@ class Q4{
 		System.out.println(num);
 		}
 		catch(java.util.InputMismatchException e){
-			System.out.println("Not valid integer");
+			System.out.println("Not valid Floating value");
 		}
 	}	
 }`,
@@ -258,16 +258,21 @@ class Q4{
 	public static void main(String agr[]){
 		try
 		(Scanner scanner = new Scanner(System.in)){
-			System.out.print("enter your floating value:");
-		float num = scanner.nextFloat();
+			System.out.print("enter your Double value:");
+		double num = scanner.nextDouble();
 		System.out.println(num);
 		}
 		catch(java.util.InputMismatchException e){
-			System.out.println("Not valid integer");
+			System.out.println("Not valid Double");
 		}
 	}	
 }`,
-      output: ``
+      output: `E:\Java\practical file\input_output_source>javac -d . Q5.java
+
+E:\Java\practical file\input_output_source>java inio.Q5
+enter your double value:4.567
+4.567
+`
     },
     {
       question: "6. Enter the boolean from user using Scanner class",
