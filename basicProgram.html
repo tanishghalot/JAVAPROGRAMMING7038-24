@@ -2432,7 +2432,7 @@ topicData.queries.forEach((q, index) => {
     // Question Title
     const title = document.createElement("div");
     title.className = "query-title";
-    title.textContent = `${q.question}`;
+    title.textContent = `${index + 1}. ${q.question}`;
 
     // Show Answer Button
     const button = document.createElement("button");
