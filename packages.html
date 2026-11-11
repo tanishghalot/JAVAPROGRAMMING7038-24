@@ -172,7 +172,7 @@ const topicData = {
     queries: [
 
         {
-      question: "1. Create a Java program to access the java.util.Date class through import keyword and print the current date of the system.",
+      question: "Create a Java program to access the java.util.Date class through import keyword and print the current date of the system.",
       source_code: `package packages;
 import java.util.Date;
 class Q1{
@@ -188,7 +188,7 @@ Current date:Mon Nov 02 15:06:13 IST 2026
 `
     },
     {
-      question: "2. Create a Java program to access the java.util.Date class through qualified way and print the current date of the system.",
+      question: "Create a Java program to access the java.util.Date class through qualified way and print the current date of the system.",
       source_code: `package packages;
 
 class Q2{
@@ -204,7 +204,7 @@ Current date:Mon Nov 02 15:06:22 IST 2026
 `
     },
     {
-      question: "3. Create a Java program to access the java.util.Date class through import keyword and print the current date of the system but inherit the Date class.",
+      question: "Create a Java program to access the java.util.Date class through import keyword and print the current date of the system but inherit the Date class.",
       source_code: `package packages;
 import java.util.Date;
 class Q3 extends Date{
@@ -220,7 +220,7 @@ Current date:Mon Nov 02 15:06:29 IST 2026
 `
     },
     {
-      question: "4. Create a Java program to access the java.util.Date class through qualified way and print the current date of the system but inherit the Date class.",
+      question: "Create a Java program to access the java.util.Date class through qualified way and print the current date of the system but inherit the Date class.",
       source_code: `package packages;
 class Q4 extends java.util.Date{
 	public static void main(){
@@ -235,7 +235,7 @@ Current date:Mon Nov 02 15:06:35 IST 2026
 `
     },
     {
-      question: "5. Create a Java program to create a package with multiple default classes.",
+      question: "Create a Java program to create a package with multiple default classes.",
       source_code: `package packages;
 class A{
 	public void circle(){
@@ -274,62 +274,8 @@ This is circle
 This is rectangle
 This is square
 `
-    },
-    {
-      question: "6. Create a Java program to create a package with 4 public classes, create the object in another file and call the function created in those classes.",
-      source_code: `package shapes;
-public class circle{
-	public void circle(double radius){
-		double area = 2*3.14*radius;
-		System.out.println("The area of circle is "+area);
-	}
-}
-
-public class rectangle{
-	public void rectangle(double l,double b){
-		double area = l*b;
-		System.out.println("The area of rectangle is "+area);	}
-}
-
-public class square{
-	public void square_area(double side){
-		double area = side*side;
-		System.out.println("The area of square is "+area);
-	}
-}
-
-import shapes.*;
-
-class Q6{
-	public static void main(String arg[]){
-		circle cr = new circle();
-		cr.circle_area(7);
-		rectangle rec = new rectangle();
-		rec.rectangle_area(4,6);
-	}
-}`,
-      output: ``
-    },
-    {
-      question: "7. Write a Java program to perform employee payroll processing using packages. In the java file, Emp.java creates a package employee and creates a class Emp. Declare the variables name, empid, category, bpay, hra, da, npay, pf, grosspay, incometax, and allowance. Calculate the values in methods. Create another java file Emppay.java. Create an object e to call the methods to perform and print values.",
-      source_code: ``,
-      output: ``
-    },
-    {
-      question: "8. Create a Java program to create a package with public class and protected members to be accessed in another class.",
-      source_code: ``,
-      output: ``
-    },
-    {
-      question: "9. Create a Java program to create a nested package i.e. c4.sample with public class and protected members to be accessed in another class.",
-      source_code: ``,
-      output: ``
-    },
-    {
-      question: "10. Create a Java program to create a package with public class and public members to be accessed in another class.",
-      source_code: ``,
-      output: ``
     }
+    
 
     ]
 };
