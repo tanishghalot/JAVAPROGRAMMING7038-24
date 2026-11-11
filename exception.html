@@ -217,26 +217,6 @@ The value is even
 `
     },
     {
-      question: "3. Write a Java program to create a method that reads a file and throws an exception if the file is not found",
-      source_code: ``,
-      output: ``
-    },
-    {
-      question: "4. Write a Java program that reads a list of numbers from a file and throws an exception if any of the numbers are positive",
-      source_code: ``,
-      output: ``
-    },
-    {
-      question: "5. Write a Java program that reads a file and throws an exception if the file is empty.",
-      source_code: ``,
-      output: ``
-    },
-    {
-      question: "6. Write a Java program that reads a list of integers from the user and throws an exception if any numbers are duplicates",
-      source_code: ``,
-      output: ``
-    },
-    {
       question: "7. Write a Java program to create a method that takes a string as input and throws an exception if the string does not contain vowels.",
       source_code: `package exception;
 
@@ -263,21 +243,7 @@ E:\Java\practical file\Exception_source>java exception.Q7
 string containn vowels
 `
     },
-    {
-      question: "8. Write a Java program to connect the Java API to Database, if connection not successful then throw an exception",
-      source_code: ``,
-      output: ``
-    },
-    {
-      question: "9. Write a Java program to manage the driver with path, username and password, if not successful then throw an exception",
-      source_code: ``,
-      output: ``
-    },
-    {
-      question: "10. Write a Java program to throw the SQL Query, insert, delete, update, if not successful then throw an exception",
-      source_code: ``,
-      output: ``
-    },
+    
     {
       question: "11. Write a Java program to show an example of throws Keyword.",
       source_code: `package exception;
@@ -404,7 +370,7 @@ topicData.queries.forEach((q, index) => {
     // Question Title
     const title = document.createElement("div");
     title.className = "query-title";
-    title.textContent = `${q.question}`;
+    title.textContent = `${index + 1}. ${q.question}`;
 
     // Show Answer Button
     const button = document.createElement("button");
