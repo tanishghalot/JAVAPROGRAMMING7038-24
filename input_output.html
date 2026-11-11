@@ -158,7 +158,7 @@ const topicData = {
 
     queries: [
       {
-      question: "1. Enter the character from user using InputStreamReader",
+      question: "Enter the character from user using InputStreamReader",
       source_code: `package inio;
 import java.io.*;
 class Q1{
@@ -180,7 +180,7 @@ enter the string:Good morning
 The entered string is :Good morning`
     },
     {
-      question: "2. Enter the string from user using BufferedStreamReader",
+      question: "Enter the string from user using BufferedStreamReader",
       source_code: `package inio;
 import java.io.*;
 class Q2{
@@ -204,7 +204,7 @@ enter the string:Tanish is in BCA SEM 5
 The entered string is :Tanish is in BCA SEM 5`
     },
     {
-      question: "3. Enter the integer from user using Scanner class",
+      question: "Enter the integer from user using Scanner class",
       source_code: `package inio;
 import java.util.Scanner;
 class Q3{
@@ -227,7 +227,7 @@ enter your integer67
 6`
     },
     {
-      question: "4. Enter the float from user using Scanner class",
+      question: "Enter the float from user using Scanner class",
       source_code: `package inio;
 import java.util.Scanner;
 class Q4{
@@ -251,7 +251,7 @@ enter your floating value:34.89
 `
     },
     {
-      question: "5. Enter the double from user using Scanner class",
+      question: "Enter the double from user using Scanner class",
       source_code: `package inio;
 import java.util.Scanner;
 class Q4{
@@ -275,7 +275,7 @@ enter your double value:4.567
 `
     },
     {
-      question: "6. Enter the boolean from user using Scanner class",
+      question: "Enter the boolean from user using Scanner class",
       source_code: `package inio;
 import java.util.Scanner;
 class Q6{
@@ -299,7 +299,7 @@ true
 `
     },
     {
-      question: "7. Enter the short integer from user using Scanner class",
+      question: "Enter the short integer from user using Scanner class",
       source_code: `package inio;
 import java.util.Scanner;
 class Q7{
@@ -323,7 +323,7 @@ enter your short value:4
 `
     },
     {
-      question: "8. Enter the long integer from user using Scanner class",
+      question: "Enter the long integer from user using Scanner class",
       source_code: `package inio;
 import java.util.Scanner;
 class Q8{
@@ -345,35 +345,7 @@ E:\Java\practical file\input_output_source>java inio.Q8
 enter your Long value:36463453434
 36463453434
 `
-    },
-    {
-      question: "9. Get all characters from the file and display on the screen",
-      source_code: `package inio;
-import java.util.Scanner;
-import java.io.*;
-class Q9{
-	public static void main(String agr[]){
-		String path = "document.txt";
-		try
-		(BufferedReader reader = new BufferedReader(new FileReader(path))){
-		int ch;
-		while((ch = reader.read()) != -1){
-			System.out.println((char)ch);
-		}
-		}
-		catch(java.util.InputMismatchException e){
-			System.out.println("error occured");
-		}
-	}	
-}`,
-      output: ``
-    },
-    {
-      question: "10. Get all characters from the file, count number of lines, words, characters and display on the screen",
-      source_code: ``,
-      output: ``
     }
-
     ]
 };
 
@@ -399,7 +371,7 @@ topicData.queries.forEach((q, index) => {
     // Question Title
     const title = document.createElement("div");
     title.className = "query-title";
-    title.textContent = `${q.question}`;
+    title.textContent = `${index + 1}. ${q.question}`;
 
     // Show Answer Button
     const button = document.createElement("button");
